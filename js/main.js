@@ -22,6 +22,8 @@ _categoryRef.onSnapshot(function (snapshotData) {
     });
 });
 console.log(_categories);
+
+
 //Open more section in nav - Wojo
 let moreBtn = document.querySelector(".moreBtn");
 let navMore = document.querySelector(".nav-more");
@@ -46,6 +48,20 @@ function openMore() {
 function closeMore() {
     console.log("clicked");
     navMore.style.bottom = "-1000px";
+}
+
+function sendRequest(){
+    let mailInput = document.querySelector("#emailInput");
+    let descriptionInput = document.querySelector("#description");
+
+    let newRequest = {
+        mail: mailInput.value,
+        description: descriptionInput.value,
+        img,
+    }
+
+    _request.add(newRequest);
+    navigateTo("home");
 }
 
 /*
