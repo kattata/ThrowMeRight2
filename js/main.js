@@ -12,7 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const _db = firebase.firestore();
 const _categoryRef = _db.collection("categories");
-const _requestRef = _db.collection("request");
+const _requestRef = _db.collection("requests");
 let _categories = [];
 _categoryRef.onSnapshot(function (snapshotData) {
 
@@ -23,16 +23,17 @@ _categoryRef.onSnapshot(function (snapshotData) {
     });
 });
 console.log(_categories);
-let _request = [];
+let _requests = [];
 _requestRef.onSnapshot(function (snapshotData) {
 
     snapshotData.forEach(function (doc) {
         let request = doc.data();
         request.id = doc.id;
-        _request.push(request);
+        _requests.push(request);
     });
 });
-console.log(_request);
+console.log(_requests);
+
 //Open more section in nav - Wojo
 let moreBtn = document.querySelector(".moreBtn");
 let navMore = document.querySelector(".nav-more");
@@ -62,15 +63,17 @@ function closeMore() {
 function sendRequest(){
     let mailInput = document.querySelector("#emailInput");
     let descriptionInput = document.querySelector("#description");
+    let fileInput = document.querySelector("#fileInput");
 
     let newRequest = {
         mail: mailInput.value,
         description: descriptionInput.value,
-        img,
+        img: fileInput.src
     }
 
-    _request.add(newRequest);
-    navigateTo("home");
+    _requestRef.add(newRequest);
+    console.log("sent");
+    navigateTo("homepage");
 }
 
 /*

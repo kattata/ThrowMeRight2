@@ -26,13 +26,16 @@
                 <label for="description">Description</label>
                 <textarea id="description" required></textarea>
 
-                <input type="file" accept="image/*" name="" id="addInput">
-                <input type="submit" value="Send">
+                <input type="file" id="fileInput" accept="image/*" name="" id="addInput">
+                <input type="submit" value="Send" onclick="sendRequest()">
             </form>
         </div>
     </section>
 
-    <script src="" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <!-- Firebase Firestore (database) JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
