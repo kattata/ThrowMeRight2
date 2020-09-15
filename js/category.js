@@ -1,5 +1,19 @@
 "use strict";
 
+class category(){
+    constructor(){
+        this.template();
+        this.name = document.querySelector(`#${pageId}-container`);
+    }
+    console.log(this.name);
+}
+
+
+
+
+
+
+
 // let _trashCategories = [{
 //     name: "Glass Plastic Metal",
 //     description: "Don't trash them! The best option is pass them on reuse or find a good e-waste recycler. E-Stewards are recyclers who meet the highest standards for how they recycle our stuff, including not just shipping  it off to poor countries.",

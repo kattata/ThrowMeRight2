@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a29188a2f6.js"></script>
 </head>
-<body>
+
+<body onhashchange="pageChange()">
     <nav class="nav">
         <ul>
-            <li><a href="#"><i class="fas fa-map"></i></a></li>
+            <li><a href="#map"><i class="fas fa-map"></i></a></li>
             <li>
-                <div class="home-btn"><a href="#"><i class="fas fa-home"></i></a></div>
+                <div class="home-btn"><a href="#homepage"><i class="fas fa-home"></i></a></div>
             </li>
             <li onclick="toggleMore()" class="moreBtn"><a href="#"><i class="fas fa-ellipsis-h"></i></a></li>
         </ul>
@@ -42,7 +44,8 @@
         <div class="popularitems_container">
             <h3>Popular items</h3>
             <div class="popularitems">
-                <button>Milk carton</button>
+                <!--this is temporary, we have to find a way to only change the content on the item section-->
+                <a href="#item-container"><button>Milk carton</button></a>
                 <button>Pizza box</button>
                 <button>Batteries</button>
                 <button>Diaper</button>
@@ -54,12 +57,12 @@
         <div class="categories_container">
             <h3>Category</h3>
             <div class="categories">
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
+                <a href="#glass-category"><button id="glass"></button></a>
+                <a href="#paper-category"><button id="paper"></button></a>
+                <a href="#general-category"><button id="general"></button></a>
+                <a href="#batteries-category"><button id="batteries"></button></a>
+                <a href="#ewaste-category"><button id="ewaste"></button></a>
+                <a href="#bulky-category"><button id="bulky"></button></a>
             </div>
         </div>
     </section>
@@ -68,18 +71,31 @@
     <section id="search" class="page">
     </section>
 
-    <section id="category" class="page"></section>
+    <section id="glass-category" class="page"></section>
+    <section id="paper-category" class="page"></section>
+    <section id="general-category" class="page"></section>
+    <section id="batteries-category" class="page"></section>
+    <section id="ewaste-category" class="page"></section>
+    <section id="bulky-category" class="page"></section>
+
     <!--Ana is doing the item page-->
-    <section id="item" class="page">
-        <section id="item-container"></section>
+    <section id="item-container" class="page">
         <!--add html template in items.js-->
     </section>
+
     <section id="map" class="page"></section>
     <section id="request" class="page"></section>
 
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <!-- Firebase Firestore (database) JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
     <!-- SPA functionality  -->
     <script src="js/spa.js"></script>
     <!-- main js file -->
     <script src="js/main.js"></script>
+    <!--item js file-->
+    <script src="js/item.js"></script>
+
 </body>
+
 </html>
