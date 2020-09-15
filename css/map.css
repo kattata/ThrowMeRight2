@@ -1,0 +1,41 @@
+:root {
+    --green: #23B677;
+    --dark-grey: #303030;
+    --yellow: #F7D025;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.map-title-container {
+    background-color: var(--green);
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: -20px;
+    z-index: 100;
+    width: 100%;
+}
+
+.map-title-container h1 {
+    padding: 2em 1em 1em 1em;
+}
+
+ .map-categories {
+    position: fixed;
+    bottom: 100px;
+}
+
+.map-categories img {
+    width: 100px;
+    height: 100px;
+}
+
+iframe {
+    width: 100%;
+    height: 100vh;
+}
+
