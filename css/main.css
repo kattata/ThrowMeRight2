@@ -277,27 +277,27 @@ input[type="submit"] {
     height: 144px;
 }
 
-.categories button:nth-child(1) {
+#glass {
     background-image: url(/media/glass.png);
 }
 
-.categories button:nth-child(2) {
+#paper {
     background-image: url(/media/paper.png);
 }
 
-.categories button:nth-child(3) {
+#general {
     background-image: url(/media/general.png);
 }
 
-.categories button:nth-child(4) {
+#batteries {
     background-image: url(/media/batteries.png);
 }
 
-.categories button:nth-child(5) {
+#ewaste {
     background-image: url(/media/ewaste.png);
 }
 
-.categories button:nth-child(6) {
+#bulky {
     background-image: url(/media/bulky.png);
 }
 
