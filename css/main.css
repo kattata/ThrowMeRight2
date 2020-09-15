@@ -302,5 +302,30 @@ input[type="submit"] {
 }
 
 /*ITEM PAGE START*/
+#item-container {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+#item-container h2 {
+    text-align: center;
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+#item-category-image {
+    display: flex;
+    margin: 10px auto 20px auto;
+}
+
+#item-description {
+    background-color: #FAFAFA;
+    padding: 10px;
+    border-radius: 10%;
+}
+
+h1 {
+    font-size: 32px;
+}
 
 /*ITEM PAGE END*/

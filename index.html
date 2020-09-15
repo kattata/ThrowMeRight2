@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a29188a2f6.js"></script>
 </head>
+
 <body onhashchange="pageChange()">
     <nav class="nav">
         <ul>
@@ -43,7 +44,8 @@
         <div class="popularitems_container">
             <h3>Popular items</h3>
             <div class="popularitems">
-                <button>Milk carton</button>
+                <!--this is temporary, we have to find a way to only change the content on the item section-->
+                <a href="#item-container"><button>Milk carton</button></a>
                 <button>Pizza box</button>
                 <button>Batteries</button>
                 <button>Diaper</button>
@@ -77,10 +79,10 @@
     <section id="bulky-category" class="page"></section>
 
     <!--Ana is doing the item page-->
-    <section id="item" class="page">
-        <section id="item-container"></section>
+    <section id="item-container" class="page">
         <!--add html template in items.js-->
     </section>
+
     <section id="map" class="page"></section>
     <section id="request" class="page"></section>
 
@@ -91,6 +93,8 @@
     <script src="js/spa.js"></script>
     <!-- main js file -->
     <script src="js/main.js"></script>
+    <!--item js file-->
+    <script src="js/item.js"></script>
 
 </body>
 
