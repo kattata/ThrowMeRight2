@@ -32,7 +32,7 @@ h6 {
 .nav {
     position: fixed;
     width: 90%;
-    bottom: 40px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 10px;
@@ -252,7 +252,7 @@ input[type="submit"] {
 .categories_container {
     width: 90%;
     top: 6rem;
-    margin: 0 5%;
+    margin: 10px 5% 25% 5%;
     position: relative;
     font-family: 'Poppins Medium', sans-serif;
     font-size: 20px;
