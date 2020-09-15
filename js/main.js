@@ -12,6 +12,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const _db = firebase.firestore();
 const _categoryRef = _db.collection("categories");
+const _requestRef = _db.collection("request");
 let _categories = [];
 _categoryRef.onSnapshot(function (snapshotData) {
 
@@ -22,8 +23,16 @@ _categoryRef.onSnapshot(function (snapshotData) {
     });
 });
 console.log(_categories);
+let _request = [];
+_requestRef.onSnapshot(function (snapshotData) {
 
-
+    snapshotData.forEach(function (doc) {
+        let request = doc.data();
+        request.id = doc.id;
+        _request.push(request);
+    });
+});
+console.log(_request);
 //Open more section in nav - Wojo
 let moreBtn = document.querySelector(".moreBtn");
 let navMore = document.querySelector(".nav-more");
