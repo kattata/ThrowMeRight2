@@ -82,6 +82,8 @@ h6 {
     z-index: -1;
     padding-bottom: 50px;
     transition: 0.5s;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .nav-more>ol {
@@ -91,7 +93,7 @@ h6 {
     flex-direction: column;
 }
 
-.nav-more>ol>li{
+.nav-more>ol>li {
     margin: 10px 0;
     text-align: center;
 }
@@ -101,7 +103,7 @@ h6 {
     text-decoration: none;
 }
 
-.nav-more>ol>li>a> i {
+.nav-more>ol>li>a>i {
     padding-right: 10px;
     font-size: 25px;
 }
