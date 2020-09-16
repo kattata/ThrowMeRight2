@@ -10,6 +10,11 @@
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: var(--dark-grey);
+}
+
 .map-title-container {
     background-color: var(--green);
     color: white;
@@ -42,5 +47,20 @@
 #mapbox {
     width: 100%;
     height: 100vh;
+}
+
+.go-to-google-maps {
+    position: relative;
+}
+
+.google-maps-logo {
+    height: 20px;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
+.open-google-maps {
+    margin-left: 20px;
 }
 
