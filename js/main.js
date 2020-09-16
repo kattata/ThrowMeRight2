@@ -60,7 +60,7 @@ function closeMore() {
     navMore.style.bottom = "-1000px";
 }
 
-function sendRequest(){
+function sendRequest() {
     let mailInput = document.querySelector("#emailInput");
     let descriptionInput = document.querySelector("#description");
     let fileInput = document.querySelector("#fileInput");
@@ -75,6 +75,15 @@ function sendRequest(){
     console.log("sent");
     navigateTo("homepage");
 }
+
+$("#inputid").click(function () {
+    $(".homepage_top").animate({
+        height: '+=1000px'
+    }, 600);
+    $(".homepage_top").css(
+        "z-index", "2"
+    );
+});
 
 /*
 const webcamElement = document.getElementById('webcam');
