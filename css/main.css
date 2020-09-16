@@ -226,7 +226,10 @@ input[type="submit"] {
 }
 
 .popularitems {
-    margin: 1rem 2.5% 0 2.5%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    column-gap: 10px;
+    grid-auto-flow: row;
 }
 
 .popularitems button {
@@ -237,6 +240,7 @@ input[type="submit"] {
     color: #505050;
     border-radius: 8px;
     margin: 4px 6px;
+    min-width: 100%;
 }
 
 .seeall {
