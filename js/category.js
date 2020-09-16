@@ -1,6 +1,6 @@
 "use strict";
 
-class Category() {
+/*class Category() {
     constructor(name, description) {
         this.name = name;
         this.description = description;
@@ -11,6 +11,7 @@ class Category() {
 
         for (const category of _trashCategories) {
             htmlTemplate += /*html*/
+/*
                 `
             <article>
                 <h1>${category.name}</h1>
@@ -26,8 +27,7 @@ class Category() {
 
 let glass = new Category("Glass Plastic Metal", "Don't trash them! The best option is pass them on reuse or find a good e-waste recycler. E-Stewards are recyclers who meet the highest standards for how they recycle our stuff, including not just shipping  it off to poor countries.");
 let paper = new Category("Paper", "Don't trash them! The best option is pass them on reuse or find a good e-waste recycler. E-Stewards are recyclers who meet the highest standards for how they recycle our stuff, including not just shipping  it off to poor countries.");
-
-
+*/
 // let _trashCategories = [{
 //     name: "Glass Plastic Metal",
 //     description: "Don't trash them! The best option is pass them on reuse or find a good e-waste recycler. E-Stewards are recyclers who meet the highest standards for how they recycle our stuff, including not just shipping  it off to poor countries.",

@@ -103,6 +103,21 @@ $(".home-btn").click(function () {
     );
 });
 
+// Appending categories - Ana
+function appendCategoryPage(id, name, description) {
+    let htmlTemplate = /*html*/ `
+        <section class="page" id="${id}">
+            <h1>${name}</h1>
+            <p>${description}</p>
+            <h2>Items</h2>
+        </section>
+    `;
+    document.querySelector("#category").innerHTML += htmlTemplate;
+    pageChange();
+}
+appendCategoryPage("glass", "Glass Metal Plastic", "something important about GLASS");
+
+
 
 /*
 const webcamElement = document.getElementById('webcam');
