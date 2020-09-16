@@ -15,15 +15,7 @@ let map = new mapboxgl.Map({
 
 function showPantOptions() {
 
-    let htmlTemplate = "";
-
-    htmlTemplate += `
-
-        
-
-    `
-
-    document.querySelector('.pant-options').innerHTML = htmlTemplate;
+    document.querySelector(".pant-options").classList.toggle("visible");
 }
 
 map.on('click', function (e) {

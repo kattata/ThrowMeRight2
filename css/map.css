@@ -68,14 +68,23 @@ a {
     background: var(--green);
     position: absolute;
     top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 101;
-    display: flex;
+    display: none;
     flex-direction: row;
     border-radius: 10px;
+    text-align: center;
+    width: 90%;
+}
+
+.visible {
+    display: flex;
 }
 
 .checkbox-container * {
     display: inline;
+
 }
 
 .checkbox-container {
@@ -88,7 +97,8 @@ a {
     padding-left: 7px;
 }
 
-.checkbox-container input {
+.checkbox-container input * {
     border: none;
+    border-color: white;
 } 
 
