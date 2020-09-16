@@ -13,7 +13,18 @@ let map = new mapboxgl.Map({
     zoom: 8.5
 });
 
-let categoryButton = document.querySelector('.glass');
+function showPantOptions() {
+
+    let htmlTemplate = "";
+
+    htmlTemplate += `
+
+        
+
+    `
+
+    document.querySelector('.pant-options').innerHTML = htmlTemplate;
+}
 
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {

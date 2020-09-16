@@ -64,3 +64,31 @@ a {
     margin-left: 20px;
 }
 
+.pant-options {
+    background: var(--green);
+    position: absolute;
+    top: 140px;
+    z-index: 101;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+}
+
+.checkbox-container * {
+    display: inline;
+}
+
+.checkbox-container {
+    padding: 10px 15px;
+}
+
+.checkbox-container label {
+    color: white;
+    font-family: font-family: 'Poppins', sans-serif;
+    padding-left: 7px;
+}
+
+.checkbox-container input {
+    border: none;
+} 
+
