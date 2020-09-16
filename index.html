@@ -16,6 +16,8 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a29188a2f6.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 
@@ -45,7 +47,12 @@
     <section id="homepage" class="page">
         <div class="homepage_top"></div>
         <div class="searchbar_container">
-            <input type="text" placeholder=" Search for trash...">
+            <input id="inputid" type="text" placeholder=" Search for trash...">
+        </div>
+        <div class="search_results_container">
+            <div class="search_results">
+
+            </div>
         </div>
         <div class="popularitems_container">
             <h3>Popular items</h3>
@@ -63,7 +70,7 @@
         <div class="categories_container">
             <h3>Category</h3>
             <div class="categories">
-                <a href="#glass-category"><button id="glass"></button></a>
+                <a href="#category" onclick="glass.append()"><button id="glass"></button></a>
                 <a href="#paper-category"><button id="paper"></button></a>
                 <a href="#general-category"><button id="general"></button></a>
                 <a href="#batteries-category"><button id="batteries"></button></a>
@@ -77,12 +84,8 @@
     <section id="search" class="page">
     </section>
 
-    <section id="glass-category" class="page"></section>
-    <section id="paper-category" class="page"></section>
-    <section id="general-category" class="page"></section>
-    <section id="batteries-category" class="page"></section>
-    <section id="ewaste-category" class="page"></section>
-    <section id="bulky-category" class="page"></section>
+    <section id="category" class="page"></section>
+
 
     <!--Ana is doing the item page-->
     <section id="item-container" class="page">
@@ -121,6 +124,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"
         integrity="sha256-zUQGihTEkA4nkrgfbbAM1f3pxvnWiznBND+TuJoUv3M=" crossorigin="anonymous"></script>
     <script src="js/map.js"></script>
+    <script src="js/category.js"></script>
 
 </body>
 

@@ -108,6 +108,12 @@ h6 {
     font-size: 25px;
 }
 
+.nav-white {
+    background-color: var(--yellow);
+    -webkit-transition: background-color 700ms;
+    transition: background-color 700ms;
+}
+
 /***Request page***/
 .request {
     height: 100vh;
@@ -187,13 +193,29 @@ input[type="submit"] {
     border-radius: 12px;
     border: 1px solid white;
     text-indent: 16px;
+    z-index: 4;
+    position: relative;
 }
 
 .searchbar_container input::placeholder {
     font-size: 20px;
     color: #AAAAAA;
     font-family: 'Poppins Regular', sans-serif;
+}
 
+/* Search results */
+
+.search_results_container {
+    width: 80%;
+    margin: 0 10%;
+    top: 6rem;
+    height: 70%;
+    background-color: white;
+    position: absolute;
+    z-index: 3;
+    display: none;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 /* Green thing at top of homepage */
@@ -207,6 +229,8 @@ input[type="submit"] {
     background-color: var(--green);
     position: absolute;
     z-index: -1;
+    min-height: 9rem;
+    max-height: 1144px;
 }
 
 /* Popular items */
