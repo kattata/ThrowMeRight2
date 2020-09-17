@@ -13,28 +13,30 @@ let map = new mapboxgl.Map({
     zoom: 8.5
 });
 
-function showLocations(boolean) {
-    map.on('click', function (e) {
-        var features = map.queryRenderedFeatures(e.point, {
-            layers: ['recycling-stations'] // replace this with the name of the layer
-        });
+function showPantOptions() {
 
-        if (!features.length) {
-            return;
-        }
+    document.querySelector(".pant-options").classList.toggle("visible");
+}
 
-        let feature = features[0];
+map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, {
+        layers: ['recycling-stations'] // replace this with the name of the layer
+    });
 
-        let popup = new mapboxgl.Popup({ offset: [0, -15] })
-            .setLngLat(feature.geometry.coordinates)
-            .setHTML(
-                `<h3>${feature.properties.place_name}</h3>
-            <a href="https://www.google.com/maps/" class="go-to-google-maps">
+    if (!features.length) {
+        return;
+    }
+
+    let feature = features[0];
+
+    let popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+            `<h3>${feature.properties.place_name}</h3>
+            <a onclick="openGoogleMaps()" class="go-to-google-maps">
             <img src="../media/googlemaps.jpg" class="google-maps-logo">
             <p class="open-google-maps">Open in Google Maps</p>
             </a>`
-            )
-            .addTo(map);
-    });
-
-}
+        )
+        .addTo(map);
+});

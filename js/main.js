@@ -82,6 +82,9 @@ function sendRequest() {
     navigateTo("homepage");
 }
 
+
+// Search bar slide down when clicked - Oliver
+
 $("#inputid").click(function () {
     $(".homepage_top").animate({
         height: '+=1000px'
@@ -89,7 +92,38 @@ $("#inputid").click(function () {
     $(".homepage_top").css(
         "z-index", "2"
     );
+    $(".search_results_container").slideDown(600, function () {});
+    $(".nav").addClass("nav-white");
 });
+
+// Search bar slide up when home-btn is clicked - Oliver
+
+$(".home-btn").click(function () {
+    $(".homepage_top").animate({
+        height: '-=1000px'
+    }, 600);
+    $(".search_results_container").slideUp(600, function () {});
+    $(".nav").removeClass("nav-white");
+    $(".homepage_top").css.delay()(
+        "z-index", "-1"
+    );
+});
+
+// Appending categories - Ana
+function appendCategoryPage(id, name, description) {
+    let htmlTemplate = /*html*/ `
+        <section class="page" id="${id}">
+            <h1>${name}</h1>
+            <p>${description}</p>
+            <h2>Items</h2>
+        </section>
+    `;
+    document.querySelector("#category").innerHTML += htmlTemplate;
+    pageChange();
+}
+appendCategoryPage("glass", "Glass Metal Plastic", "something important about GLASS");
+
+
 
 /*
 const webcamElement = document.getElementById('webcam');
