@@ -53,10 +53,6 @@ map.on('load', function () {
         'layout': {
             'visibility': 'visible'
         },
-        'paint': {
-            'circle-radius': 8,
-            'circle-color': 'rgba(55,148,179,1)'
-        },
         'source-layer': 'bulky-waste'
     });
     map.addSource('recycling-stations', {
@@ -70,45 +66,38 @@ map.on('load', function () {
         'layout': {
             'visibility': 'visible'
         },
-        'paint': {
-            'circle-radius': 8,
-            'circle-color': 'rgba(11,148,179,1)'
-        },
         'source-layer': 'recycling-stations'
+    });
+    map.addSource('ewaste', {
+        type: 'vector',
+        url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
+    });
+    map.addLayer({
+        'id': 'ewaste',
+        'type': 'circle',
+        'source': 'ewaste',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'source-layer': 'ewaste'
+    });
+    map.addSource('batteries', {
+        type: 'vector',
+        url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
+    });
+    map.addLayer({
+        'id': 'batteries',
+        'type': 'circle',
+        'source': 'batteries',
+        'layout': {
+            'visibility': 'visible'
+        },
+        'source-layer': 'batteries'
     });
 
 });
 
-// let toggleLayerIds = ['bulky-waste', 'recycling-stations'];
 
-// for (let i = 0; i < toggleLayerIds.length; i++) {
-//     let id = toggleLayerIds[i];
-
-//     let link = document.createElement('a');
-//     link.href = '#';
-//     link.className = 'active';
-//     link.textContent = id;
-
-//     link.onclick = function (e) {
-//         var clickedLayer = this.textContent;
-//         e.preventDefault();
-//         e.stopPropagation();
-
-//         var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
-
-//         // toggle layer visibility by changing the layout object's visibility property
-//         if (visibility === 'visible') {
-//             map.setLayoutProperty(clickedLayer, 'visibility', 'none');
-//             this.className = '';
-//         } else {
-//             this.className = 'active';
-//             map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
-//         }
-//     };
-
-//     var layers = document.getElementById('menu');
-//     layers.appendChild(link);
-// }
 
 let glassButton = document.querySelector('#map-glass');
 let generalButton = document.querySelector('#map-general');
@@ -119,7 +108,7 @@ let recyclingStationsButtons = [glassButton, generalButton, paperButton];
 for (const button of recyclingStationsButtons) {
 
 
-    button.onclick = function (e) {
+    button.onclick = function () {
 
         let visibility = map.getLayoutProperty('recycling-stations', 'visibility');
 
@@ -134,7 +123,7 @@ for (const button of recyclingStationsButtons) {
 
 let bulkyButton = document.querySelector('#map-bulky');
 
-bulkyButton.onclick = function (e) {
+bulkyButton.onclick = function () {
 
     let visibility = map.getLayoutProperty('bulky-waste', 'visibility');
 
@@ -142,5 +131,32 @@ bulkyButton.onclick = function (e) {
         map.setLayoutProperty('bulky-waste', 'visibility', 'none');
     } else {
         map.setLayoutProperty('bulky-waste', 'visibility', 'visible');
+    }
+}
+
+let ewasteButton = document.querySelector('#map-ewaste');
+
+ewasteButton.onclick = function () {
+
+    let visibility = map.getLayoutProperty('ewaste', 'visibility');
+
+    if (visibility === 'visible') {
+        map.setLayoutProperty('ewaste', 'visibility', 'none');
+    } else {
+        map.setLayoutProperty('ewaste', 'visibility', 'visible');
+    }
+}
+let batteriesButton = document.querySelector('#map-batteries');
+
+batteriesButton.onclick = function () {
+
+    console.log('clicked');
+
+    let visibility = map.getLayoutProperty('batteries', 'visibility');
+
+    if (visibility === 'visible') {
+        map.setLayoutProperty('batteries', 'visibility', 'none');
+    } else {
+        map.setLayoutProperty('batteries', 'visibility', 'visible');
     }
 }
