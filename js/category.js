@@ -102,4 +102,3 @@ let paper = new Category("Paper", "Don't trash them! The best option is pass the
 
 //     document.querySelector("").innerHTML = htmlTemplate;
 // };
-*/
