@@ -14,7 +14,7 @@ const _db = firebase.firestore();
 const _categoryRef = _db.collection("categories");
 const _requestRef = _db.collection("requests");
 let _categories = [];
-let _selectedImfFile = "";
+
 
 _categoryRef.onSnapshot(function (snapshotData) {
 
@@ -23,9 +23,7 @@ _categoryRef.onSnapshot(function (snapshotData) {
         category.id = doc.id;
         _categories.push(category);
         appendCategoryPage(category.id, category.name, category.description, category.items);
-        //appendItems(category.id, category.items);
     });
-   
 });
 
 console.log(_categories);
@@ -67,21 +65,35 @@ function closeMore() {
     navMore.style.bottom = "-1000px";
 }
 
+/***data from request***/
+
+
 function sendRequest() {
-    let mailInput = document.querySelector("#emailInput");
-    let descriptionInput = document.querySelector("#description");
-    let fileInput = document.querySelector("#fileInput");
-    let imageInput = document.querySelector('#imagePreview')
 
-    let newRequest = {
-        mail: mailInput.value,
-        description: descriptionInput.value,
-        img: fileInput.src
+    let mailInput = document.querySelector("#emailInput").value;
+    let descriptionInput = document.querySelector("#description").value;
+    let fileInput = document.querySelector("#fileInput").src;
+
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if(mailInput =="" || descriptionInput ==""){
+        console.log("Error empty");
+        alert("Fill up the form.");
+    }else if(!re.test(String(mailInput).toLowerCase())){
+        alert("Your email is not valid!");
+        console.log("Wrong email");
     }
-
-    _requestRef.add(newRequest);
-    console.log("sent");
-    navigateTo("homepage");
+    else{
+        let newRequest = {
+            mail: mailInput,
+            description: descriptionInput,
+            img: fileInput
+        }
+    
+        _requestRef.add(newRequest);
+        console.log("sent");
+        navigateTo("#homepage");
+    }
 }
 
 

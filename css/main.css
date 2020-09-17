@@ -98,6 +98,10 @@ h6 {
     text-align: center;
 }
 
+.nav-more>ol>li img{
+    width: 100px;
+}
+
 .nav-more>ol>li>a {
     color: #fff;
     text-decoration: none;
@@ -122,10 +126,16 @@ h6 {
 .green-head {
     height: 100px;
     background-color: var(--green);
-    font-size: 26px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
     color: #fff;
-    margin-left: 15px;
     border-radius: 0 0 15px 15px;
+}
+
+.green-head>h2{
+    margin-left: 15px;
+    line-height: 1;
 }
 
 .form {
@@ -343,10 +353,12 @@ input[type="submit"] {
 /***Category page***/
 
 .description-container{
-    width: 100%;
-    background-color: #FAFAFA;
+    width: 90%;
+    background-color: #e2e2e2;
     box-sizing: border-box;
-    padding: 10px;
+    margin: 15px auto 15px auto;
+    padding: 10px 15px;
+    border-radius: 10px;
 }
 
 .items-container{

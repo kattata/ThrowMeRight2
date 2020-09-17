@@ -12,7 +12,7 @@ function appendCategoryPage(id, name, description, items) {
                 <p>${description}</p>
             </div>
             <h3>Items</h3>
-            <div class="items-container"></div>
+            <div class="items-container">${items}</div>
         </section>
     `;
     document.querySelector("#webapp").innerHTML += htmlTemplate;
@@ -20,18 +20,26 @@ function appendCategoryPage(id, name, description, items) {
     pageChange();
 }
 
+/*function appendItems(items){
+
+let _itemsRef = firebase.database().ref("categories/");
+_itemsRef.orderByChild("items").on("child_added", function(data) {
+   console.log(data.val().items);
+});
+}
+
 /*
-function appendItems(id, items){
+function appendItems(items){
     console.log(id, items);
     let itemTemplate = "";
-    for (const item of items) {
+    forEach (const item of items) {
         itemTemplate += `
             <div class="item"><p>${item.items}</p><a href="#"><i class="fas fa-angle-right"></i></a></div>
         `;
     }
     
-    document.querySelector(".items-container").innerHTML = itemTemplate;
-}*/
+    //document.querySelector(".items-container").innerHTML = itemTemplate;
+}
 /*
 function appendCategories(categories) {
     let htmlTemplate = "";
