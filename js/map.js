@@ -18,28 +18,7 @@ function showPantOptions() {
     document.querySelector(".pant-options").classList.toggle("visible");
 }
 
-// map.on('click', function (e) {
-//     var features = map.queryRenderedFeatures(e.point, {
-//         layers: ['recycling-stations'] // replace this with the name of the layer
-//     });
 
-//     if (!features.length) {
-//         return;
-//     }
-
-//     let feature = features[0];
-
-//     let popup = new mapboxgl.Popup({ offset: [0, -15] })
-//         .setLngLat(feature.geometry.coordinates)
-//         .setHTML(
-//             `<h3>${feature.properties.place_name}</h3>
-//             <a onclick="openGoogleMaps()" class="go-to-google-maps">
-//             <img src="../media/googlemaps.jpg" class="google-maps-logo">
-//             <p class="open-google-maps">Open in Google Maps</p>
-//             </a>`
-//         )
-//         .addTo(map);
-// });
 
 map.on('load', function () {
     map.addSource('bulky-waste', {
@@ -47,7 +26,7 @@ map.on('load', function () {
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
-        'id': 'bulky-waste',
+        'id': 'bulky-waste-id',
         'type': 'circle',
         'source': 'bulky-waste',
         'layout': {
@@ -60,7 +39,7 @@ map.on('load', function () {
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
-        'id': 'recycling-stations',
+        'id': 'recycling-stations-id',
         'type': 'circle',
         'source': 'recycling-stations',
         'layout': {
@@ -73,7 +52,7 @@ map.on('load', function () {
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
-        'id': 'ewaste',
+        'id': 'ewaste-id',
         'type': 'circle',
         'source': 'ewaste',
         'layout': {
@@ -86,7 +65,7 @@ map.on('load', function () {
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
-        'id': 'batteries',
+        'id': 'batteries-id',
         'type': 'circle',
         'source': 'batteries',
         'layout': {
@@ -160,3 +139,28 @@ batteriesButton.onclick = function () {
         map.setLayoutProperty('batteries', 'visibility', 'visible');
     }
 }
+
+// let allLayers = []
+
+map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, {
+        layers: ['recycling-stations', 'bulky-waste', 'ewaste'] // replace this with the name of the layer
+    });
+
+    if (!features.length) {
+        return;
+    }
+
+    let feature = features[0];
+
+    let popup = new mapboxgl.Popup({ offset: [0, -15] })
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(
+            `<h3>${feature.properties.place_name}</h3>
+            <a onclick="openGoogleMaps()" class="go-to-google-maps">
+            <img src="../media/googlemaps.jpg" class="google-maps-logo">
+            <p class="open-google-maps">Open in Google Maps</p>
+            </a>`
+        )
+        .addTo(map);
+});
