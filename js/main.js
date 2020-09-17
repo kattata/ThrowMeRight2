@@ -14,6 +14,8 @@ const _db = firebase.firestore();
 const _categoryRef = _db.collection("categories");
 const _requestRef = _db.collection("requests");
 let _categories = [];
+let _selectedImfFile = "";
+
 _categoryRef.onSnapshot(function (snapshotData) {
 
     snapshotData.forEach(function (doc) {
@@ -21,9 +23,12 @@ _categoryRef.onSnapshot(function (snapshotData) {
         category.id = doc.id;
         _categories.push(category);
     });
+    appendCategories(category);
 });
+
 console.log(_categories);
 let _requests = [];
+
 _requestRef.onSnapshot(function (snapshotData) {
 
     snapshotData.forEach(function (doc) {
@@ -64,6 +69,7 @@ function sendRequest() {
     let mailInput = document.querySelector("#emailInput");
     let descriptionInput = document.querySelector("#description");
     let fileInput = document.querySelector("#fileInput");
+    let imageInput = document.querySelector('#imagePreview')
 
     let newRequest = {
         mail: mailInput.value,

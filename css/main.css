@@ -171,6 +171,12 @@ input[type="submit"] {
     text-transform: uppercase;
 }
 
+.image-preview {
+    width: 100%;
+    height: auto;
+    
+}
+
 /* Search bar */
 
 .searchbar_container {
@@ -309,6 +315,31 @@ input[type="submit"] {
 #bulky {
     background-image: url(/media/bulky.png);
 }
+
+
+/***Category page***/
+
+.description-container{
+    width: 100%;
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.items-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.items-container>.item{
+    display: flex;
+    background-color: #FAFAFA;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+
+}
+
 
 /*ITEM PAGE START*/
 #item-container {
