@@ -24,7 +24,7 @@
 <body onhashchange="pageChange()">
     <nav class="nav">
         <ul>
-            <li><a href="#map"><i class="fas fa-map"></i></a></li>
+            <li><a class="map-btn" href="#map"><i class="fas fa-map"></i></a></li>
             <li>
                 <div class="home-btn"><a href="#homepage"><i class="fas fa-home"></i></a></div>
             </li>
@@ -62,107 +62,107 @@
                     <button>Juice box</button>
                 </div>
                 <button class="seeall">See all items (564)</button>
-    <!-- Oliver doing this now -->
-    <section id="homepage" class="page">
-        <div class="homepage_top"></div>
-        <div class="searchbar_container">
-            <input id="inputid" type="text" placeholder=" Search for trash...">
-        </div>
-        <div class="search_results_container">
-            <div class="search_results">
+                <!-- Oliver doing this now -->
+                <section id="homepage" class="page">
+                    <div class="homepage_top"></div>
+                    <div class="searchbar_container">
+                        <input id="inputid" type="text" placeholder=" Search for trash...">
+                    </div>
+                    <div class="search_results_container">
+                        <div class="search_results">
 
-            </div>
-        </div>
-        <div class="popularitems_container">
-            <h3>Popular items</h3>
-            <div class="popularitems">
-                <!--this is temporary, we have to find a way to only change the content on the item section-->
-                <a href="#item-container"><button>Milk carton</button></a>
-                <button>Pizza box</button>
-                <button>Batteries</button>
-                <button>Diaper</button>
-                <button>Broken bottle</button>
-                <button>Juice box</button>
-            </div>
-            <button class="seeall">See all items (564)</button>
-        </div>
-        <div class="categories_container">
-            <h3>Category</h3>
-            <div class="categories">
-                <a href="#glass-page"><button id="glass"></button></a>
-                <a href="#paper-page"><button id="paper"></button></a>
-                <a href="#general-category"><button id="general"></button></a>
-                <a href="#batteries-category"><button id="batteries"></button></a>
-                <a href="#ewaste-category"><button id="ewaste"></button></a>
-                <a href="#bulky-category"><button id="bulky"></button></a>
-            </div>
-            <div class="categories_container">
-                <h3>Category</h3>
-                <div class="categories">
-                    <a href="#category" onclick="appendCategories()"><button id="glass"></button></a>
-                    <a href="#paper-category"><button id="paper"></button></a>
-                    <a href="#general-category"><button id="general"></button></a>
-                    <a href="#batteries-category"><button id="batteries"></button></a>
-                    <a href="#ewaste-category"><button id="ewaste"></button></a>
-                    <a href="#bulky-category"><button id="bulky"></button></a>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="search" class="page">
-        </section>
-
-        <section id="category" class="page"></section>
+                        </div>
+                    </div>
+                    <div class="popularitems_container">
+                        <h3>Popular items</h3>
+                        <div class="popularitems">
+                            <!--this is temporary, we have to find a way to only change the content on the item section-->
+                            <a href="#item-container"><button>Milk carton</button></a>
+                            <button>Pizza box</button>
+                            <button>Batteries</button>
+                            <button>Diaper</button>
+                            <button>Broken bottle</button>
+                            <button>Juice box</button>
+                        </div>
+                        <button class="seeall">See all items (564)</button>
+                    </div>
+                    <div class="categories_container">
+                        <h3>Category</h3>
+                        <div class="categories">
+                            <a href="#glass-page"><button id="glass"></button></a>
+                            <a href="#paper-page"><button id="paper"></button></a>
+                            <a href="#general-category"><button id="general"></button></a>
+                            <a href="#batteries-category"><button id="batteries"></button></a>
+                            <a href="#ewaste-category"><button id="ewaste"></button></a>
+                            <a href="#bulky-category"><button id="bulky"></button></a>
+                        </div>
+                        <div class="categories_container">
+                            <h3>Category</h3>
+                            <div class="categories">
+                                <a href="#category" onclick="appendCategories()"><button id="glass"></button></a>
+                                <a href="#paper-category"><button id="paper"></button></a>
+                                <a href="#general-category"><button id="general"></button></a>
+                                <a href="#batteries-category"><button id="batteries"></button></a>
+                                <a href="#ewaste-category"><button id="ewaste"></button></a>
+                                <a href="#bulky-category"><button id="bulky"></button></a>
+                            </div>
+                        </div>
+                </section>
 
 
-        <!--Ana is doing the item page-->
-        <section id="item-container" class="page">
-            <!--add html template in items.js-->
-        </section>
+                <section id="search" class="page">
+                </section>
 
-        <section id="map" class="page">
-            <div id="mapbox"></div>
-            <div class="map-title-container">
-                <h1>Recycle stations</h1>
-            </div>
-            <div class="map-categories">
-                <div><img onclick="showLocations(false)" src="media/glass.png"></div>
-                <div><img src="media/general.png"></div>
-                <div><img src="media/paper.png"></div>
-                <div><img src="media/batteries.png"></div>
-                <div><img src="media/bulky.png"></div>
-                <div><img src="media/ewaste.png"></div>
-            </div>
-    <section id="map" class="page">
-        <div id="mapbox"></div>
-        <div class="map-title-container">
-            <h1>Recycle stations</h1>
-        </div>
-        <div class="pant-options">
-            <div class="checkbox-container">
-                <input type="checkbox" id="pant-stations">
-                <label for="pant-stations">Pant stations</label>
-            </div>
-            <div class="checkbox-container">
-                <input type="checkbox" id="flaskeautomat">
-                <label for="flaskeautomat">Flaskeautomat</label>
-            </div>
+                <section id="category" class="page"></section>
 
-        </div>
-        <div class="map-categories">
-            <div><img onclick="showPantOptions()" src="media/glass.png"></div>
-            <div><img src="media/general.png"></div>
-            <div><img src="media/paper.png"></div>
-            <div><img src="media/batteries.png"></div>
-            <div><img src="media/bulky.png"></div>
-            <div><img src="media/ewaste.png"></div>
-        </div>
 
-        </section>
-        <section id="request" class="page"></section>
+                <!--Ana is doing the item page-->
+                <section id="item-container" class="page">
+                    <!--add html template in items.js-->
+                </section>
+
+                <section id="map" class="page">
+                    <div id="mapbox"></div>
+                    <div class="map-title-container">
+                        <h1>Recycle stations</h1>
+                    </div>
+                    <div class="map-categories">
+                        <div><img onclick="showLocations(false)" src="media/glass.png"></div>
+                        <div><img src="media/general.png"></div>
+                        <div><img src="media/paper.png"></div>
+                        <div><img src="media/batteries.png"></div>
+                        <div><img src="media/bulky.png"></div>
+                        <div><img src="media/ewaste.png"></div>
+                    </div>
+                    <section id="map" class="page">
+                        <div id="mapbox"></div>
+                        <div class="map-title-container">
+                            <h1>Recycle stations</h1>
+                        </div>
+                        <div class="pant-options">
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="pant-stations">
+                                <label for="pant-stations">Pant stations</label>
+                            </div>
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="flaskeautomat">
+                                <label for="flaskeautomat">Flaskeautomat</label>
+                            </div>
+
+                        </div>
+                        <div class="map-categories">
+                            <div><img onclick="showPantOptions()" src="media/glass.png"></div>
+                            <div><img src="media/general.png"></div>
+                            <div><img src="media/paper.png"></div>
+                            <div><img src="media/batteries.png"></div>
+                            <div><img src="media/bulky.png"></div>
+                            <div><img src="media/ewaste.png"></div>
+                        </div>
+
+                    </section>
+                    <section id="request" class="page"></section>
     </main>
-    
+
 
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
     <!-- Firebase Firestore (database) JS SDK -->

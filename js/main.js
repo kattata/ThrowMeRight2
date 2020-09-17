@@ -109,6 +109,10 @@ $(".home-btn").click(function () {
     );
 });
 
+$(".map-btn").click(function () {
+    $(".nav").removeClass("nav-white");
+});
+
 // Appending categories - Ana
 function appendCategoryPage(id, name, description) {
     let htmlTemplate = /*html*/ `
