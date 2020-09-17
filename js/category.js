@@ -1,8 +1,8 @@
 "use strict";
 
 // Appending categories - Ana
-function appendCategoryPage(id, name, description) {
-    console.log(id, name);
+function appendCategoryPage(id, name, description, items) {
+    console.log(id, name, description, items);
     let htmlTemplate = /*html*/ `
         <section class="page" id="${id}-page">
             <header class="green-head">
@@ -11,12 +11,27 @@ function appendCategoryPage(id, name, description) {
             <div class="description-container">
                 <p>${description}</p>
             </div>
+            <h3>Items</h3>
+            <div class="items-container"></div>
         </section>
     `;
     document.querySelector("#webapp").innerHTML += htmlTemplate;
+    //appendItems();
     pageChange();
 }
 
+/*
+function appendItems(id, items){
+    console.log(id, items);
+    let itemTemplate = "";
+    for (const item of items) {
+        itemTemplate += `
+            <div class="item"><p>${item.items}</p><a href="#"><i class="fas fa-angle-right"></i></a></div>
+        `;
+    }
+    
+    document.querySelector(".items-container").innerHTML = itemTemplate;
+}*/
 /*
 function appendCategories(categories) {
     let htmlTemplate = "";

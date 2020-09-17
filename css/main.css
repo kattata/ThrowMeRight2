@@ -124,6 +124,7 @@ h6 {
     background-color: var(--green);
     font-size: 26px;
     color: #fff;
+    margin-left: 15px;
     border-radius: 0 0 15px 15px;
 }
 

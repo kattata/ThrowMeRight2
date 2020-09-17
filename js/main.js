@@ -22,7 +22,8 @@ _categoryRef.onSnapshot(function (snapshotData) {
         let category = doc.data();
         category.id = doc.id;
         _categories.push(category);
-        appendCategoryPage(category.id, category.name, category.description);
+        appendCategoryPage(category.id, category.name, category.description, category.items);
+        //appendItems(category.id, category.items);
     });
    
 });
