@@ -22,8 +22,9 @@ _categoryRef.onSnapshot(function (snapshotData) {
         let category = doc.data();
         category.id = doc.id;
         _categories.push(category);
+        appendCategoryPage(category.id, category.name, category.description);
     });
-    appendCategories(category);
+   
 });
 
 console.log(_categories);
@@ -113,17 +114,7 @@ $(".map-btn").click(function () {
     $(".nav").removeClass("nav-white");
 });
 
-// Appending categories - Ana
-function appendCategoryPage(id, name, description) {
-    let htmlTemplate = /*html*/ `
-        <section class="page" id="${id}">
-            <h1>${name}</h1>
-            <p>${description}</p>
-        </section>
-    `;
-    document.querySelector("#webapp").innerHTML += htmlTemplate;
-    pageChange();
-}
+
 
 /*
 const webcamElement = document.getElementById('webcam');
