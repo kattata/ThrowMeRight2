@@ -5,8 +5,12 @@ function appendCategoryPage(id, name, description) {
     console.log(id, name);
     let htmlTemplate = /*html*/ `
         <section class="page" id="${id}-page">
-            <h2>${name}</h2>
-            <p>${description}</p>
+            <header class="green-head">
+                <h2>${name}</h2>
+            </header>
+            <div class="description-container">
+                <p>${description}</p>
+            </div>
         </section>
     `;
     document.querySelector("#webapp").innerHTML += htmlTemplate;
