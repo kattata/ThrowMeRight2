@@ -1,10 +1,10 @@
-"use strict";
+/*"use strict";
 function appendCategories(categories) {
     let htmlTemplate = "";
 
     for (let category of _categories) {
         console.log(category);
-        htmlTemplate += /*html*/
+        htmlTemplate += 
         `
         <header class="green-head">
             <h2>${category.name}</h2>
@@ -20,7 +20,7 @@ function appendCategories(categories) {
     };
     document.querySelector("#category").innerHTML += htmlTemplate;
 };
-
+*/
 /*
 let _trashCategories = [{
     name: "Glass Plastic Metal",
@@ -102,4 +102,3 @@ let paper = new Category("Paper", "Don't trash them! The best option is pass the
 
 //     document.querySelector("").innerHTML = htmlTemplate;
 // };
-*/
