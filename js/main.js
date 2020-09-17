@@ -119,15 +119,11 @@ function appendCategoryPage(id, name, description) {
         <section class="page" id="${id}">
             <h1>${name}</h1>
             <p>${description}</p>
-            <h2>Items</h2>
         </section>
     `;
-    document.querySelector("#category").innerHTML += htmlTemplate;
+    document.querySelector("#webapp").innerHTML += htmlTemplate;
     pageChange();
 }
-appendCategoryPage("glass", "Glass Metal Plastic", "something important about GLASS");
-
-
 
 /*
 const webcamElement = document.getElementById('webcam');
