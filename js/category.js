@@ -1,4 +1,23 @@
-/*"use strict";
+"use strict";
+
+// Appending categories - Ana
+function appendCategoryPage(id, name, description) {
+    console.log(id, name);
+    let htmlTemplate = /*html*/ `
+        <section class="page" id="${id}-page">
+            <header class="green-head">
+                <h2>${name}</h2>
+            </header>
+            <div class="description-container">
+                <p>${description}</p>
+            </div>
+        </section>
+    `;
+    document.querySelector("#webapp").innerHTML += htmlTemplate;
+    pageChange();
+}
+
+/*
 function appendCategories(categories) {
     let htmlTemplate = "";
 
