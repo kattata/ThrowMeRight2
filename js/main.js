@@ -40,6 +40,15 @@ _requestRef.onSnapshot(function (snapshotData) {
 });
 console.log(_requests);
 
+let items = [];
+_itemRef.onSnapshot(function (snapshotData) {
+    snapshotData.forEach(function (doc) {
+        let item = doc.data();
+        item.id = doc.id;
+        items.push(item);
+    });
+});
+
 
 
 // _itemRef.onSnapshot(function (snapshotData) {
@@ -163,22 +172,24 @@ document.querySelector('#download-photo').href = picture;
 
 webcam.stop();*/
 
-
 // search functionality
-function search(searchValue) {
-    _itemRef.onSnapshot(function (snapshotData) {
-        let items = [];
-        snapshotData.forEach(function (doc) {
-            let item = doc.data();
-            item.id = doc.id;
-            items.push(item);
-        });
-        searchValue = searchValue.toLowerCase();
-        let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
-
-        appendItem(filteredItems);
-    });
+function search(value) {
+    
+    let searchValue = value.toLowerCase();
+    let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
+    appendItem(filteredItems);
 };
+
+function appendItem(items) {
+    let htmlTemplate = "";
+        for (const item of items) {
+            htmlTemplate += /*html*/ `
+            <p>${item.name}</p>
+        `;
+    }
+    document.querySelector(".search_results").innerHTML = htmlTemplate;
+    console.log(items);
+}
 
 // function search(value) {
 //     // TODO: search functionality
@@ -195,13 +206,3 @@ function search(searchValue) {
 //     appendItem(result);
 // }
 
-function appendItem(items) {
-    let htmlTemplate = "";
-    for (const item of items) {
-        htmlTemplate = /*html*/ `
-        <p>${item.name}</p>
-    `;
-    }
-    document.querySelector(".search_results").innerHTML += htmlTemplate;
-    console.log(items);
-}
