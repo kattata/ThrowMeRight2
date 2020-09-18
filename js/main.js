@@ -43,7 +43,7 @@ console.log(_requests);
 let moreBtn = document.querySelector(".moreBtn");
 let navMore = document.querySelector(".nav-more");
 let navBtn = document.querySelectorAll(".fas");
-let nav = document.querySelector("nav");
+let nav = document.querySelector(".nav");
 
 
 function toggleMore() {
@@ -73,14 +73,15 @@ function sendRequest() {
     let mailInput = document.querySelector("#emailInput").value;
     let descriptionInput = document.querySelector("#description").value;
     let fileInput = document.querySelector("#fileInput").src;
+    let invalidMsg = document.querySelector(".invalid");
 
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if(mailInput =="" || descriptionInput ==""){
         console.log("Error empty");
-        alert("Fill up the form.");
+        invalidMsg.textContent="Please fill up the form."
     }else if(!re.test(String(mailInput).toLowerCase())){
-        alert("Your email is not valid!");
+        invalidMsg.textContent="Your email is not valid"
         console.log("Wrong email");
     }
     else{
