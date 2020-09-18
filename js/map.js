@@ -1,3 +1,4 @@
+//slick
 $(document).ready(function () {
     $('.map-categories').slick({
         slidesToShow: 3,
@@ -5,6 +6,7 @@ $(document).ready(function () {
     });
 });
 
+//mapbox
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2F0dGF0YSIsImEiOiJjazdkMW9samkwamVxM2ZwYTdycWVqeTdnIn0.UiaVPV8_C6knWwC1_K8zkA';
 let map = new mapboxgl.Map({
     container: 'mapbox',
@@ -14,69 +16,64 @@ let map = new mapboxgl.Map({
 });
 
 function showPantOptions() {
-
     document.querySelector(".pant-options").classList.toggle("visible");
 }
 
-
-
 map.on('load', function () {
-    map.addSource('bulky-waste', {
+    map.addSource('bulky-waste-dataset', {
         type: 'vector',
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
         'id': 'bulky-waste-id',
         'type': 'circle',
-        'source': 'bulky-waste',
+        'source': 'bulky-waste-dataset',
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'bulky-waste'
+        'source-layer': 'bulky-waste-dataset'
     });
-    map.addSource('recycling-stations', {
+    map.addSource('recycling-stations-dataset', {
         type: 'vector',
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
         'id': 'recycling-stations-id',
         'type': 'circle',
-        'source': 'recycling-stations',
+        'source': 'recycling-stations-dataset',
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'recycling-stations'
+        'source-layer': 'recycling-stations-dataset'
     });
-    map.addSource('ewaste', {
+    map.addSource('ewaste-dataset', {
         type: 'vector',
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
         'id': 'ewaste-id',
         'type': 'circle',
-        'source': 'ewaste',
+        'source': 'ewaste-dataset',
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'ewaste'
+        'source-layer': 'ewaste-dataset'
     });
-    map.addSource('batteries', {
+    map.addSource('batteries-dataset', {
         type: 'vector',
         url: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y'
     });
     map.addLayer({
         'id': 'batteries-id',
         'type': 'circle',
-        'source': 'batteries',
+        'source': 'batteries-dataset',
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'batteries'
+        'source-layer': 'batteries-dataset'
     });
 
 });
-
-
 
 let glassButton = document.querySelector('#map-glass');
 let generalButton = document.querySelector('#map-general');
@@ -85,8 +82,6 @@ let paperButton = document.querySelector('#map-paper');
 let recyclingStationsButtons = [glassButton, generalButton, paperButton];
 
 for (const button of recyclingStationsButtons) {
-
-
     button.onclick = function () {
 
         let visibility = map.getLayoutProperty('recycling-stations', 'visibility');
@@ -97,7 +92,6 @@ for (const button of recyclingStationsButtons) {
             map.setLayoutProperty('recycling-stations', 'visibility', 'visible');
         }
     }
-
 }
 
 let bulkyButton = document.querySelector('#map-bulky');
@@ -129,8 +123,6 @@ let batteriesButton = document.querySelector('#map-batteries');
 
 batteriesButton.onclick = function () {
 
-    console.log('clicked');
-
     let visibility = map.getLayoutProperty('batteries', 'visibility');
 
     if (visibility === 'visible') {
@@ -144,7 +136,7 @@ batteriesButton.onclick = function () {
 
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {
-        layers: ['recycling-stations', 'bulky-waste', 'ewaste'] // replace this with the name of the layer
+        layers: ['recycling-stations', 'bulky-waste', 'ewaste', 'batteries'] // replace this with the name of the layer
     });
 
     if (!features.length) {
