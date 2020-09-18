@@ -15,7 +15,6 @@ const _categoryRef = _db.collection("categories");
 const _requestRef = _db.collection("requests");
 const _itemRef = _db.collection("items");
 let _categories = [];
-// let _items = [];
 
 // _categoryRef.onSnapshot(function (snapshotData) {
 
@@ -162,38 +161,25 @@ let picture = webcam.snap();
 document.querySelector('#download-photo').href = picture;
 
 webcam.stop();*/
+let _items = [];
+_itemRef.onSnapshot(function (snapshotData) {
 
+    snapshotData.forEach(function (doc) {
+        let item = doc.data();
+        item.id = doc.id;
+        _items.push(item);
+    });
+});
 
 // search functionality
-function search(searchValue) {
-    _itemRef.onSnapshot(function (snapshotData) {
-        let items = [];
-        snapshotData.forEach(function (doc) {
-            let item = doc.data();
-            item.id = doc.id;
-            items.push(item);
-        });
-        searchValue = searchValue.toLowerCase();
-        let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
+function search(value) {
+    let searchValue = value.toLowerCase();
 
-        appendItem(filteredItems);
-    });
-};
 
-// function search(value) {
-//     // TODO: search functionality
-//     let searchValue = value.toLowerCase();
-//     console.log(searchValue);
+    let filteredItems = _items.filter(item => item.name.toLowerCase().includes(searchValue));
 
-//     let result = [];
-//     for (const item of _items) {
-//         let name = item.name.toLowerCase();
-//         if (name.includes(searchValue)) {
-//             result.push(item);
-//         }
-//     }
-//     appendItem(result);
-// }
+    appendItem(filteredItems);
+}
 
 function appendItem(items) {
     let htmlTemplate = "";
@@ -203,5 +189,4 @@ function appendItem(items) {
     `;
     }
     document.querySelector(".search_results").innerHTML += htmlTemplate;
-    console.log(items);
 }
