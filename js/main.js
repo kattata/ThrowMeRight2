@@ -39,6 +39,15 @@ _requestRef.onSnapshot(function (snapshotData) {
 });
 console.log(_requests);
 
+let items = [];
+_itemRef.onSnapshot(function (snapshotData) {
+    snapshotData.forEach(function (doc) {
+        let item = doc.data();
+        item.id = doc.id;
+        items.push(item);
+    });
+});
+
 
 
 // _itemRef.onSnapshot(function (snapshotData) {
@@ -173,20 +182,35 @@ _itemRef.onSnapshot(function (snapshotData) {
 
 // search functionality
 function search(value) {
+
     let searchValue = value.toLowerCase();
-
-
-    let filteredItems = _items.filter(item => item.name.toLowerCase().includes(searchValue));
-
+    let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
     appendItem(filteredItems);
-}
+};
 
 function appendItem(items) {
     let htmlTemplate = "";
     for (const item of items) {
-        htmlTemplate = /*html*/ `
-        <p>${item.name}</p>
-    `;
+        htmlTemplate += /*html*/ `
+            <p>${item.name}</p>
+        `;
     }
-    document.querySelector(".search_results").innerHTML += htmlTemplate;
+    document.querySelector(".search_results").innerHTML = htmlTemplate;
+    console.log(items);
 }
+
+// function search(value) {
+//     // TODO: search functionality
+//     let searchValue = value.toLowerCase();
+//     console.log(searchValue);
+
+//     let result = [];
+//     for (const item of _items) {
+//         let name = item.name.toLowerCase();
+//         if (name.includes(searchValue)) {
+//             result.push(item);
+//         }
+//     }
+//     appendItem(result);
+// }
+
