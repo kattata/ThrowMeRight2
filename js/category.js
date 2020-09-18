@@ -12,7 +12,7 @@ function appendCategoryPage(id, name, description, items) {
                 <p>${description}</p>
             </div>
             <h3>Items</h3>
-            <div class="items-container">${items}</div>
+        
         </section>
     `;
     document.querySelector("#webapp").innerHTML += htmlTemplate;
