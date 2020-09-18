@@ -173,8 +173,13 @@ document.querySelector('#download-photo').href = picture;
 webcam.stop();*/
 
 // search functionality
+
 function search(value) {
-    
+    const key = event.key; 
+    if (key === "Backspace" || key === "Delete" || key === "Enter") {
+        return false;
+    }
+
     let searchValue = value.toLowerCase();
     let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
     appendItem(filteredItems);
