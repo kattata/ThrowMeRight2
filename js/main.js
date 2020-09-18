@@ -15,7 +15,6 @@ const _categoryRef = _db.collection("categories");
 const _requestRef = _db.collection("requests");
 const _itemRef = _db.collection("items");
 let _categories = [];
-// let _items = [];
 
 // _categoryRef.onSnapshot(function (snapshotData) {
 
@@ -106,8 +105,7 @@ function sendRequest() {
     } else if (!re.test(String(mailInput).toLowerCase())) {
         invalidMsg.textContent = "Your email is not valid"
         console.log("Wrong email");
-    }
-    else {
+    } else {
         let newRequest = {
             mail: mailInput,
             description: descriptionInput,
@@ -130,7 +128,7 @@ $("#inputid").click(function () {
     $(".homepage_top").css(
         "z-index", "2"
     );
-    $(".search_results_container").slideDown(600, function () { });
+    $(".search_results_container").slideDown(600, function () {});
     $(".nav").addClass("nav-white");
 });
 
@@ -140,7 +138,7 @@ $(".home-btn").click(function () {
     $(".homepage_top").animate({
         height: '-=1000px'
     }, 600);
-    $(".search_results_container").slideUp(600, function () { });
+    $(".search_results_container").slideUp(600, function () {});
     $(".nav").removeClass("nav-white");
     $(".homepage_top").css.delay()(
         "z-index", "-1"
@@ -171,6 +169,15 @@ let picture = webcam.snap();
 document.querySelector('#download-photo').href = picture;
 
 webcam.stop();*/
+let _items = [];
+_itemRef.onSnapshot(function (snapshotData) {
+
+    snapshotData.forEach(function (doc) {
+        let item = doc.data();
+        item.id = doc.id;
+        _items.push(item);
+    });
+});
 
 // search functionality
 
@@ -187,13 +194,43 @@ function search(value) {
 
 function appendItem(items) {
     let htmlTemplate = "";
-        for (const item of items) {
-            htmlTemplate += /*html*/ `
+    for (const item of items) {
+        htmlTemplate += /*html*/ `
             <p>${item.name}</p>
         `;
     }
     document.querySelector(".search_results").innerHTML = htmlTemplate;
     console.log(items);
+}
+
+// Onboarding screen - Ana
+
+function appendOnboardingScreen() {
+    let htmlTemplate = /*html*/ `
+        <div id="logo-container"><img src="./media/logo.png" id="logo-image"></div>
+        <section id="app-description">
+            <h1>Welcome!</h1>
+            <p>It takes just a search in our app to find out how to sort your trash.
+                <br>Struggle no more.
+            </p>
+        </section>
+        <div id="continue-container"><button id="continue" onclick='showMenu()'>CONTINUE</button></div>
+    `;
+    document.querySelector("#onboarding").innerHTML += htmlTemplate;
+
+}
+appendOnboardingScreen();
+
+function hideMenu() {
+    if (location.hash = "#onboarding") {
+        nav.style.visibility = "hidden";
+    }
+}
+hideMenu();
+
+function showMenu() {
+    nav.style.visibility = "visible";
+    navigateTo("homepage");
 }
 
 // function search(value) {
@@ -210,4 +247,3 @@ function appendItem(items) {
 //     }
 //     appendItem(result);
 // }
-
