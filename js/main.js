@@ -13,18 +13,19 @@ firebase.initializeApp(firebaseConfig);
 const _db = firebase.firestore();
 const _categoryRef = _db.collection("categories");
 const _requestRef = _db.collection("requests");
+const _itemRef = _db.collection("items");
 let _categories = [];
+// let _items = [];
 
+// _categoryRef.onSnapshot(function (snapshotData) {
 
-_categoryRef.onSnapshot(function (snapshotData) {
-
-    snapshotData.forEach(function (doc) {
-        let category = doc.data();
-        category.id = doc.id;
-        _categories.push(category);
-        appendCategoryPage(category.id, category.name, category.description);
-    });
-});
+//     snapshotData.forEach(function (doc) {
+//         let category = doc.data();
+//         category.id = doc.id;
+//         _categories.push(category);
+//         appendCategoryPage(category.id, category.name, category.description, category.items);
+//     });
+// });
 
 console.log(_categories);
 let _requests = [];
@@ -38,6 +39,19 @@ _requestRef.onSnapshot(function (snapshotData) {
     });
 });
 console.log(_requests);
+
+
+
+// _itemRef.onSnapshot(function (snapshotData) {
+
+//     snapshotData.forEach(function (doc) {
+//         let item = doc.data();
+//         item.id = doc.id;
+//         _items.push(item);
+//     });
+// });
+// console.log(_items);
+
 
 //Open more section in nav - Wojo
 let moreBtn = document.querySelector(".moreBtn");
@@ -77,20 +91,20 @@ function sendRequest() {
 
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if(mailInput =="" || descriptionInput ==""){
+    if (mailInput == "" || descriptionInput == "") {
         console.log("Error empty");
-        invalidMsg.textContent="Please fill up the form."
-    }else if(!re.test(String(mailInput).toLowerCase())){
-        invalidMsg.textContent="Your email is not valid"
+        invalidMsg.textContent = "Please fill up the form."
+    } else if (!re.test(String(mailInput).toLowerCase())) {
+        invalidMsg.textContent = "Your email is not valid"
         console.log("Wrong email");
     }
-    else{
+    else {
         let newRequest = {
             mail: mailInput,
             description: descriptionInput,
             img: fileInput
         }
-    
+
         _requestRef.add(newRequest);
         console.log("sent");
         navigateTo("#homepage");
@@ -107,7 +121,7 @@ $("#inputid").click(function () {
     $(".homepage_top").css(
         "z-index", "2"
     );
-    $(".search_results_container").slideDown(600, function () {});
+    $(".search_results_container").slideDown(600, function () { });
     $(".nav").addClass("nav-white");
 });
 
@@ -117,7 +131,7 @@ $(".home-btn").click(function () {
     $(".homepage_top").animate({
         height: '-=1000px'
     }, 600);
-    $(".search_results_container").slideUp(600, function () {});
+    $(".search_results_container").slideUp(600, function () { });
     $(".nav").removeClass("nav-white");
     $(".homepage_top").css.delay()(
         "z-index", "-1"
@@ -148,3 +162,46 @@ let picture = webcam.snap();
 document.querySelector('#download-photo').href = picture;
 
 webcam.stop();*/
+
+
+// search functionality
+function search(searchValue) {
+    _itemRef.onSnapshot(function (snapshotData) {
+        let items = [];
+        snapshotData.forEach(function (doc) {
+            let item = doc.data();
+            item.id = doc.id;
+            items.push(item);
+        });
+        searchValue = searchValue.toLowerCase();
+        let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
+
+        appendItem(filteredItems);
+    });
+};
+
+// function search(value) {
+//     // TODO: search functionality
+//     let searchValue = value.toLowerCase();
+//     console.log(searchValue);
+
+//     let result = [];
+//     for (const item of _items) {
+//         let name = item.name.toLowerCase();
+//         if (name.includes(searchValue)) {
+//             result.push(item);
+//         }
+//     }
+//     appendItem(result);
+// }
+
+function appendItem(items) {
+    let htmlTemplate = "";
+    for (const item of items) {
+        htmlTemplate = /*html*/ `
+        <p>${item.name}</p>
+    `;
+    }
+    document.querySelector(".search_results").innerHTML += htmlTemplate;
+    console.log(items);
+}

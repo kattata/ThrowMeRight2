@@ -37,7 +37,7 @@ function appendItems(items){
             <div class="item"><p>${item.items}</p><a href="#"><i class="fas fa-angle-right"></i></a></div>
         `;
     }
-    
+
     //document.querySelector(".items-container").innerHTML = itemTemplate;
 }
 /*
@@ -46,7 +46,7 @@ function appendCategories(categories) {
 
     for (let category of _categories) {
         console.log(category);
-        htmlTemplate += 
+        htmlTemplate +=
         `
         <header class="green-head">
             <h2>${category.name}</h2>
@@ -77,7 +77,7 @@ class Category {
     };
 
     template(){
-        document.querySelector("#webapp").innerHTML += 
+        document.querySelector("#webapp").innerHTML +=
         `
         <section id="category" class="page"></section>
         `;
@@ -87,7 +87,7 @@ class Category {
         let htmlTemplate = "";
 
         for (const category of categories) {
-            htmlTemplate += 
+            htmlTemplate +=
             `
             <header class="green-head">
                 <h2>${category.name}</h2>

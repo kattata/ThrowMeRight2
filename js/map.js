@@ -1,6 +1,6 @@
 //slick
-$(document).ready(function () {
-    $('.map-categories').slick({
+$(window).on('load', function () {
+    $(".map-categories").slick({
         slidesToShow: 3,
         slidesToScroll: 2
     });
@@ -31,7 +31,7 @@ map.on('load', function () {
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'bulky-waste-dataset'
+        'source-layer': 'bulky-waste-id'
     });
     map.addSource('recycling-stations-dataset', {
         type: 'vector',
@@ -44,7 +44,7 @@ map.on('load', function () {
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'recycling-stations-dataset'
+        'source-layer': 'recycling-stations-id'
     });
     map.addSource('ewaste-dataset', {
         type: 'vector',
@@ -57,7 +57,7 @@ map.on('load', function () {
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'ewaste-dataset'
+        'source-layer': 'ewaste-id'
     });
     map.addSource('batteries-dataset', {
         type: 'vector',
@@ -70,7 +70,7 @@ map.on('load', function () {
         'layout': {
             'visibility': 'visible'
         },
-        'source-layer': 'batteries-dataset'
+        'source-layer': 'batteries-id'
     });
 
 });
@@ -84,12 +84,12 @@ let recyclingStationsButtons = [glassButton, generalButton, paperButton];
 for (const button of recyclingStationsButtons) {
     button.onclick = function () {
 
-        let visibility = map.getLayoutProperty('recycling-stations', 'visibility');
+        let visibility = map.getLayoutProperty('recycling-stations-dataset', 'visibility');
 
         if (visibility === 'visible') {
-            map.setLayoutProperty('recycling-stations', 'visibility', 'none');
+            map.setLayoutProperty('recycling-stations-dataset', 'visibility', 'none');
         } else {
-            map.setLayoutProperty('recycling-stations', 'visibility', 'visible');
+            map.setLayoutProperty('recycling-stations-dataset', 'visibility', 'visible');
         }
     }
 }
@@ -98,12 +98,12 @@ let bulkyButton = document.querySelector('#map-bulky');
 
 bulkyButton.onclick = function () {
 
-    let visibility = map.getLayoutProperty('bulky-waste', 'visibility');
+    let visibility = map.getLayoutProperty('bulky-waste-dataset', 'visibility');
 
     if (visibility === 'visible') {
-        map.setLayoutProperty('bulky-waste', 'visibility', 'none');
+        map.setLayoutProperty('bulky-waste-dataset', 'visibility', 'none');
     } else {
-        map.setLayoutProperty('bulky-waste', 'visibility', 'visible');
+        map.setLayoutProperty('bulky-waste-dataset', 'visibility', 'visible');
     }
 }
 
@@ -111,24 +111,25 @@ let ewasteButton = document.querySelector('#map-ewaste');
 
 ewasteButton.onclick = function () {
 
-    let visibility = map.getLayoutProperty('ewaste', 'visibility');
+    let visibility = map.getLayoutProperty('ewaste-dataset', 'visibility');
 
     if (visibility === 'visible') {
-        map.setLayoutProperty('ewaste', 'visibility', 'none');
+        map.setLayoutProperty('ewaste-dataset', 'visibility', 'none');
     } else {
-        map.setLayoutProperty('ewaste', 'visibility', 'visible');
+        map.setLayoutProperty('ewaste-dataset', 'visibility', 'visible');
     }
 }
+
 let batteriesButton = document.querySelector('#map-batteries');
 
 batteriesButton.onclick = function () {
 
-    let visibility = map.getLayoutProperty('batteries', 'visibility');
+    let visibility = map.getLayoutProperty('batteries-dataset', 'visibility');
 
     if (visibility === 'visible') {
-        map.setLayoutProperty('batteries', 'visibility', 'none');
+        map.setLayoutProperty('batteries-dataset', 'visibility', 'none');
     } else {
-        map.setLayoutProperty('batteries', 'visibility', 'visible');
+        map.setLayoutProperty('batteries-dataset', 'visibility', 'visible');
     }
 }
 
@@ -136,7 +137,7 @@ batteriesButton.onclick = function () {
 
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {
-        layers: ['recycling-stations', 'bulky-waste', 'ewaste', 'batteries'] // replace this with the name of the layer
+        layers: ['recycling-stations-dataset', 'bulky-waste-dataset', 'ewaste-dataset', 'batteries-dataset'] // replace this with the name of the layer
     });
 
     if (!features.length) {
