@@ -1,27 +1,26 @@
 "use strict";
 
-function hideAllPages(){
+function hideAllPages() {
      let pages = document.querySelectorAll(".page");
      for (const page of pages) {
           page.style.display = "none";
      }
 }
 
-function showPage(pageId){
+function showPage(pageId) {
      hideAllPages();
      document.querySelector(`#${pageId}`).style.display = "block";
 }
 
-function navigateTo(pageId){
-     location.href=`#${pageId}`;
+function navigateTo(pageId) {
+     location.href = `#${pageId}`;
 }
 
-function pageChange(){
-     let page = "homepage";
-     if(location.hash){
+function pageChange() {
+     let page = "onboarding";
+     if (location.hash) {
           page = location.hash.slice(1);
      }
-
      showPage(page);
 }
 
