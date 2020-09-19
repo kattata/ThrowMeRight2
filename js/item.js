@@ -22,10 +22,15 @@ function appendPopularItem() {
                 <header class="green-head">
                 <h1>${item.title.rendered}</h1>
             </header>
+            <div class="item-image-container">
                 <img src= "${item.acf.image}" id="item-image">
+             </div>
                 <h2>Where to throw it</h2>
                 <img src= "${item.acf.category_image}" id="item-category-image">
-                <p id="item-description"> ${item.content.rendered}</p>
+                <div class="description-container">
+                    <p>${item.content.rendered}</p>
+                </div>
+                
             </article>
      `;
 
