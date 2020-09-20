@@ -1,5 +1,6 @@
 /* Ana did this */
 "use strict";
+let _items = [];
 
 async function getItems() {
     let response = await fetch("http://throwmeright.anaiacovache.dk/wp-json/wp/v2/posts");
@@ -54,7 +55,7 @@ function appendCategoryPage(id, name, description, items) {
                 <p>${description}</p>
             </div>
             <h3>Items</h3>
-        
+
         </section>
     `;
 document.querySelector("#webapp").innerHTML += htmlTemplate;
