@@ -463,3 +463,9 @@ h1 {
 }
 
 /*ITEM PAGE END*/
+
+/* SEARCH RESULTS */
+.search_results_container a {
+    display: block;
+    margin: 10px 24px;
+}

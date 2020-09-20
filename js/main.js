@@ -170,15 +170,6 @@ let picture = webcam.snap();
 document.querySelector('#download-photo').href = picture;
 
 webcam.stop();*/
-let _items = [];
-_itemRef.onSnapshot(function (snapshotData) {
-
-    snapshotData.forEach(function (doc) {
-        let item = doc.data();
-        item.id = doc.id;
-        _items.push(item);
-    });
-});
 
 // search functionality
 function search(value) {
@@ -192,25 +183,23 @@ function appendItem(items) {
     let htmlTemplate = "";
     for (const item of items) {
         htmlTemplate += /*html*/ `
-            <p>${item.name}</p>
+            <a href="#item" onclick="showItemPage(${item.name}, ${item.description})">${item.name}</a>
         `;
     }
     document.querySelector(".search_results").innerHTML = htmlTemplate;
     console.log(items);
 }
 
-// function search(value) {
-//     // TODO: search functionality
-//     let searchValue = value.toLowerCase();
-//     console.log(searchValue);
+// function showItemPage(itemName, itemDescription) {
+//     let name = itemName.value;
+//     let description = itemDescription.value;
 
-//     let result = [];
-//     for (const item of _items) {
-//         let name = item.name.toLowerCase();
-//         if (name.includes(searchValue)) {
-//             result.push(item);
-//         }
-//     }
-//     appendItem(result);
+//     let htmlTemplate = "";
+
+//     htmlTemplate = `
+//         <h2>${name}</h2>
+//         <p>${description}</p>
+//     `;
+//     document.querySelector('#item').innerHTML = htmlTemplate;
+//     navigateTo('item');
 // }
-
