@@ -105,8 +105,7 @@ function sendRequest() {
     } else if (!re.test(String(mailInput).toLowerCase())) {
         invalidMsg.textContent = "Your email is not valid"
         console.log("Wrong email");
-    }
-    else {
+    } else {
         let newRequest = {
             mail: mailInput,
             description: descriptionInput,
@@ -172,7 +171,12 @@ document.querySelector('#download-photo').href = picture;
 webcam.stop();*/
 
 // search functionality
+
 function search(value) {
+    const key = event.key;
+    if (key === "Backspace" || key === "Delete" || key === "Enter") {
+        return false;
+    }
 
     let searchValue = value.toLowerCase();
     let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
@@ -183,23 +187,60 @@ function appendItem(items) {
     let htmlTemplate = "";
     for (const item of items) {
         htmlTemplate += /*html*/ `
-            <a href="#item" onclick="showItemPage(${item.name}, ${item.description})">${item.name}</a>
+          
+        <div class="search_results">
+            <a href="#${item.name}-page" class="item-result" id="${item.name}">${item.name}</a>
+            <i class="fas fa-angle-right"></i>
+            </div>
         `;
+
+
     }
-    document.querySelector(".search_results").innerHTML = htmlTemplate;
+    document.querySelector(".search_results_container").innerHTML = htmlTemplate;
     console.log(items);
 }
 
-// function showItemPage(itemName, itemDescription) {
-//     let name = itemName.value;
-//     let description = itemDescription.value;
+// Onboarding screen - Ana
 
-//     let htmlTemplate = "";
+function appendOnboardingScreen() {
+    let htmlTemplate = /*html*/ `
+        <div id="logo-container"><img src="./media/logo.png" id="logo-image"></div>
+        <section id="app-description">
+            <h1>Welcome!</h1>
+            <p>It takes just a search in our app to find out how to sort your trash.
+                <br>Struggle no more.
+            </p>
+        </section>
+        <div id="continue-container"><button id="continue" onclick='showMenu()'>CONTINUE</button></div>
+    `;
+    document.querySelector("#onboarding").innerHTML += htmlTemplate;
 
-//     htmlTemplate = `
-//         <h2>${name}</h2>
-//         <p>${description}</p>
-//     `;
-//     document.querySelector('#item').innerHTML = htmlTemplate;
-//     navigateTo('item');
+}
+appendOnboardingScreen();
+
+function hideMenu() {
+    if (location.hash = "#onboarding") {
+        nav.style.visibility = "hidden";
+    }
+}
+hideMenu();
+
+function showMenu() {
+    nav.style.visibility = "visible";
+    navigateTo("homepage");
+}
+
+// function search(value) {
+//     // TODO: search functionality
+//     let searchValue = value.toLowerCase();
+//     console.log(searchValue);
+
+//     let result = [];
+//     for (const item of _items) {
+//         let name = item.name.toLowerCase();
+//         if (name.includes(searchValue)) {
+//             result.push(item);
+//         }
+//     }
+//     appendItem(result);
 // }
