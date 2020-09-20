@@ -88,8 +88,10 @@ for (const button of recyclingStationsButtons) {
 
         if (visibility === 'visible') {
             map.setLayoutProperty('recycling-stations-dataset', 'visibility', 'none');
+            button.style.opacity = "0.5";
         } else {
             map.setLayoutProperty('recycling-stations-dataset', 'visibility', 'visible');
+            button.style.opacity = "1";
         }
     }
 }
@@ -102,8 +104,11 @@ bulkyButton.onclick = function () {
 
     if (visibility === 'visible') {
         map.setLayoutProperty('bulky-waste-dataset', 'visibility', 'none');
+        bulkyButton.style.opacity = "0.5";
     } else {
         map.setLayoutProperty('bulky-waste-dataset', 'visibility', 'visible');
+        bulkyButton.style.opacity = "1";
+
     }
 }
 
@@ -115,8 +120,12 @@ ewasteButton.onclick = function () {
 
     if (visibility === 'visible') {
         map.setLayoutProperty('ewaste-dataset', 'visibility', 'none');
+        ewasteButton.style.opacity = "0.5";
+
     } else {
         map.setLayoutProperty('ewaste-dataset', 'visibility', 'visible');
+        ewasteButton.style.opacity = "1";
+
     }
 }
 
@@ -128,12 +137,14 @@ batteriesButton.onclick = function () {
 
     if (visibility === 'visible') {
         map.setLayoutProperty('batteries-dataset', 'visibility', 'none');
+        batteriesButton.style.opacity = "0.5";
+
     } else {
         map.setLayoutProperty('batteries-dataset', 'visibility', 'visible');
+        batteriesButton.style.opacity = "1";
+
     }
 }
-
-// let allLayers = []
 
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {

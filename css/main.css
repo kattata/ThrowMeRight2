@@ -1,5 +1,6 @@
 :root {
     --green: #23B677;
+    --green-sub-nav: #29C381;
     --dark-grey: #303030;
     --yellow: #F7D025;
 }
@@ -78,7 +79,7 @@ i {
 .nav-more {
     position: fixed;
     bottom: -1000px;
-    background-color: var(--green);
+    background-color: var(--green-sub-nav);
     width: 100%;
     z-index: -1;
     padding-bottom: 50px;
@@ -259,7 +260,9 @@ input[type="submit"] {
 
 .searchbar_container {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 50px;
+    top: 0;
+    position: absolute;
 }
 
 .searchbar_container input {
@@ -274,6 +277,7 @@ input[type="submit"] {
     z-index: 4;
     font-size: 18px;
     position: relative;
+    outline: none;
 }
 
 .searchbar_container input::placeholder {
@@ -298,6 +302,23 @@ input[type="submit"] {
     border-bottom-right-radius: 12px;
 }
 
+.search_results{
+    width: 90%;
+    margin: 10px auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 5px;
+}
+
+.search_results>i{
+    color:  var(--dark-grey);
+}
+
+
 /* Green thing at top of homepage */
 
 .homepage_top {
@@ -308,7 +329,7 @@ input[type="submit"] {
     top: 0;
     background-color: var(--green);
     position: absolute;
-    z-index: -1;
+    z-index: 2;
     min-height: 9rem;
     max-height: 1144px;
 }
@@ -319,6 +340,7 @@ input[type="submit"] {
     width: 90%;
     top: 4rem;
     margin: 0 5%;
+    padding-top: 100px;
     position: relative;
     font-family: 'Poppins Medium', sans-serif;
     font-size: 20px;
@@ -475,6 +497,11 @@ h1 {
 
 /*ITEM PAGE END*/
 
+/* SEARCH RESULTS */
+.search_results_container a {
+    display: block;
+    margin: 10px 24px;
+}
 /*ONBOARDING PAGE START - Ana */
 #onboarding {
     background-color: var(--green);

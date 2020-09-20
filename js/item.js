@@ -1,4 +1,5 @@
 "use strict";
+let _items = [];
 
 
 // append popular items - Ana

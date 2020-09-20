@@ -166,10 +166,16 @@ function appendItem(items) {
     let htmlTemplate = "";
     for (const item of items) {
         htmlTemplate += /*html*/ `
-            <p>${item.name}</p>
+          
+        <div class="search_results">
+            <a href="#${item.name}-page" class="item-result" id="${item.name}">${item.name}</a>
+            <i class="fas fa-angle-right"></i>
+            </div>
         `;
+
+
     }
-    document.querySelector(".search_results").innerHTML = htmlTemplate;
+    document.querySelector(".search_results_container").innerHTML = htmlTemplate;
     console.log(items);
 }
 
