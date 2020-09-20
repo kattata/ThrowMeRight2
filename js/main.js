@@ -1,4 +1,5 @@
 "use strict";
+
 const firebaseConfig = {
     apiKey: "AIzaSyAR47yn3G9m50zR_IVG1AIzGqJQoK30qro",
     authDomain: "throwmeright.firebaseapp.com",
@@ -14,19 +15,21 @@ const _db = firebase.firestore();
 const _categoryRef = _db.collection("categories");
 const _requestRef = _db.collection("requests");
 const _itemRef = _db.collection("items");
-let _categories = [];
 
-// _categoryRef.onSnapshot(function (snapshotData) {
+// fetch posts from wordpress
 
-//     snapshotData.forEach(function (doc) {
-//         let category = doc.data();
-//         category.id = doc.id;
-//         _categories.push(category);
-//         appendCategoryPage(category.id, category.name, category.description, category.items);
-//     });
-// });
+let _posts = [];
+async function getPosts() {
+    let response = await fetch("http://throwmeright.anaiacovache.dk/wp-json/wp/v2/posts/?per_page=20");
+    let data = await response.json();
+    console.log(data);
+    _posts = data;
+    appendPopularItem();
+    appendCategory();
+}
+getPosts();
 
-console.log(_categories);
+
 let _requests = [];
 
 _requestRef.onSnapshot(function (snapshotData) {
@@ -47,19 +50,6 @@ _itemRef.onSnapshot(function (snapshotData) {
         items.push(item);
     });
 });
-
-
-
-// _itemRef.onSnapshot(function (snapshotData) {
-
-//     snapshotData.forEach(function (doc) {
-//         let item = doc.data();
-//         item.id = doc.id;
-//         _items.push(item);
-//     });
-// });
-// console.log(_items);
-
 
 //Open more section in nav - Wojo
 let moreBtn = document.querySelector(".moreBtn");
@@ -149,26 +139,6 @@ $(".map-btn").click(function () {
     $(".nav").removeClass("nav-white");
 });
 
-
-
-/*
-const webcamElement = document.getElementById('webcam');
-const canvasElement = document.getElementById('canvas');
-const snapSoundElement = document.getElementById('snapSound');
-const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
-
-webcam.start()
-  .then(result =>{
-    console.log("webcam started");
-  })
-  .catch(err => {
-    console.log(err);
-});
-
-let picture = webcam.snap();
-document.querySelector('#download-photo').href = picture;
-
-webcam.stop();*/
 let _items = [];
 _itemRef.onSnapshot(function (snapshotData) {
 
@@ -182,7 +152,7 @@ _itemRef.onSnapshot(function (snapshotData) {
 // search functionality
 
 function search(value) {
-    const key = event.key; 
+    const key = event.key;
     if (key === "Backspace" || key === "Delete" || key === "Enter") {
         return false;
     }
@@ -232,18 +202,3 @@ function showMenu() {
     nav.style.visibility = "visible";
     navigateTo("homepage");
 }
-
-// function search(value) {
-//     // TODO: search functionality
-//     let searchValue = value.toLowerCase();
-//     console.log(searchValue);
-
-//     let result = [];
-//     for (const item of _items) {
-//         let name = item.name.toLowerCase();
-//         if (name.includes(searchValue)) {
-//             result.push(item);
-//         }
-//     }
-//     appendItem(result);
-// }
