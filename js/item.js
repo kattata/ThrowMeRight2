@@ -1,12 +1,11 @@
 "use strict";
-let _items = [];
 
 
 // append popular items - Ana
 function appendPopularItem() {
     let htmlTemplate = "";
     for (const item of _posts) {
-        if (item.categories[0] === 3) {
+        if (item.categories.includes(3)) {
             console.log(item.title.rendered, item.acf.category, item.acf.image, item.acf.category_image);
             htmlTemplate += /*html*/ `
             <article id="item-container">

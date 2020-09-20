@@ -11,7 +11,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoia2F0dGF0YSIsImEiOiJjazdkMW9samkwamVxM2ZwYTdyc
 let map = new mapboxgl.Map({
     container: 'mapbox',
     style: 'mapbox://styles/kattata/ckf3tp6w60wkg19ql7zv06r0y',
-    center: [10.195, 56.154,],
+    center: [10.195, 56.154, ],
     zoom: 8.5
 });
 
@@ -157,7 +157,9 @@ map.on('click', function (e) {
 
     let feature = features[0];
 
-    let popup = new mapboxgl.Popup({ offset: [0, -15] })
+    let popup = new mapboxgl.Popup({
+            offset: [0, -15]
+        })
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
             `<h3>${feature.properties.place_name}</h3>

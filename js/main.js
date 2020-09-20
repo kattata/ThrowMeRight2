@@ -20,7 +20,7 @@ const _itemRef = _db.collection("items");
 
 let _posts = [];
 async function getPosts() {
-    let response = await fetch("http://throwmeright.anaiacovache.dk/wp-json/wp/v2/posts/?per_page=20");
+    let response = await fetch("http://throwmeright.anaiacovache.dk/wp-json/wp/v2/posts/?per_page=50");
     let data = await response.json();
     console.log(data);
     _posts = data;
@@ -168,7 +168,7 @@ function appendItem(items) {
         htmlTemplate += /*html*/ `
           
         <div class="search_results">
-            <a href="#${item.name}-page" class="item-result" id="${item.name}">${item.name}</a>
+            <a href="#${item.category}-page" class="item-result" id="${item.name}">${item.name}</a>
             <i class="fas fa-angle-right"></i>
             </div>
         `;

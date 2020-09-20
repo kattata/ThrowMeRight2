@@ -4,15 +4,18 @@
 function appendCategory() {
     let htmlTemplate = "";
     for (const category of _posts) {
-        if (category.categories[0] === 2) {
+        if (category.categories.includes(2)) {
             console.log(category.title.rendered, category.acf.category);
             htmlTemplate += /*html*/ `
-            <article id="item-container">
+            <article id="category-container">
                 <header class="green-head">
                     <h1>${category.title.rendered}</h1>
                 </header>
                 <div class="description-container">
                     <p>${category.content.rendered}</p>
+                </div>
+                <div class="category-items-container">
+                    
                 </div>   
             </article>
         `;
