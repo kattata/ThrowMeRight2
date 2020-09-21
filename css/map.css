@@ -38,6 +38,7 @@ a {
 .map-categories img {
     width: 100px;
     height: 100px;
+    opacity: 1;
 }
 
 .map-categories div *{
@@ -76,6 +77,12 @@ a {
     border-radius: 10px;
     text-align: center;
     width: 90%;
+    justify-content: space-around;
+}
+
+.help {
+    display: flex;
+    align-self: center;
 }
 
 .visible {
@@ -88,8 +95,42 @@ a {
 }
 
 .checkbox-container {
-    padding: 10px 15px;
+    padding: 10px 0;
 }
+
+.help-container {
+    position: absolute;
+    z-index: 200;
+    top: 195px;
+    left: 50%;
+    display: none;
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+
+
+.help-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.close {
+    height: 10px;
+    position: absolute;
+    right: -6px;
+    top: -7px;
+}
+
+.visible2 {
+    display: block;
+}
+
 
 .checkbox-container label {
     color: white;
@@ -102,45 +143,4 @@ a {
     border-color: white;
 } 
 
-#menu {
-    background: #fff;
-    position: absolute;
-    z-index: 1;
-    top: 200px;
-    right: 10px;
-    border-radius: 3px;
-    width: 120px;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    font-family: 'Open Sans', sans-serif;
-    }
-     
-    #menu a {
-    font-size: 13px;
-    color: #404040;
-    display: block;
-    margin: 0;
-    padding: 0;
-    padding: 10px;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    text-align: center;
-    }
-     
-    #menu a:last-child {
-    border: none;
-    }
-     
-    #menu a:hover {
-    background-color: #f8f8f8;
-    color: #404040;
-    }
-     
-    #menu a.active {
-    background-color: #3887be;
-    color: #ffffff;
-    }
-     
-    #menu a.active:hover {
-    background: #3074a4;
-    }
 
