@@ -153,7 +153,9 @@ map.on('click', function (e) {
 
     let feature = features[0];
 
-    let popup = new mapboxgl.Popup({ offset: [0, -15] })
+    let popup = new mapboxgl.Popup({
+        offset: [0, -15]
+    })
         .setLngLat(feature.geometry.coordinates)
         .setHTML(
             `<h3>${feature.properties.place_name}</h3>

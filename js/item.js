@@ -1,6 +1,4 @@
-/* Ana did this */
 "use strict";
-
 
 async function getItems() {
     let response = await fetch("http://throwmeright.anaiacovache.dk/wp-json/wp/v2/posts");
@@ -13,10 +11,11 @@ async function getItems() {
 getItems();
 let _items = [];
 
+// append popular items - Ana
 function appendPopularItem() {
     let htmlTemplate = "";
-    for (const item of _items) {
-        if (item.categories[0] === 3) {
+    for (const item of _posts) {
+        if (item.categories.includes(3)) {
             console.log(item.title.rendered, item.acf.category, item.acf.image, item.acf.category_image);
             htmlTemplate += /*html*/ `
             <article id="item-container">
@@ -41,25 +40,3 @@ function appendPopularItem() {
     }
 
 }
-
-/*
-function appendCategoryPage(id, name, description, items) {
-    console.log(id, name, description, items);
-    let htmlTemplate =
-`
-        <section class="page" id="${id}-page">
-            <header class="green-head">
-                <h2>${name}</h2>
-            </header>
-            <div class="description-container">
-                <p>${description}</p>
-            </div>
-            <h3>Items</h3>
-
-        </section>
-    `;
-document.querySelector("#webapp").innerHTML += htmlTemplate;
-
-pageChange();
-}
-*/
