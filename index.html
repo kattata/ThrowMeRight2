@@ -57,9 +57,10 @@
             <div class="popularitems_container">
                 <h3>Popular items</h3>
                 <div class="popularitems">
+                    <!--this is temporary, we have to find a way to only change the content on the item section-->
                     <a href="#milkcarton-page"><button>Milk carton</button></a>
                     <a href="#pizzabox-page"><button>Pizza box</button></a>
-                    <a href="#batteries_item-page"><button>Batteries</button></a>
+                    <a href="#batteries-page"><button>Batteries</button></a>
                     <a href="#beercan-page"><button>Beer can</button></a>
                     <a href="#juicebox-page"><button>Juice box</button></a>
                     <a href="#diapers-page"><button>Diapers</button></a>
@@ -80,28 +81,20 @@
         </section>
 
 
-        <section id="item" class="page">
+        <section id="search" class="page">
         </section>
 
+        <section id="category" class="page"></section>
 
-        <!--Ana is doing the item pages-->
+
+        <!--Ana is doing the item page-->
         <section id="milkcarton-page" class="page"> </section>
         <section id="pizzabox-page" class="page"></section>
-        <section id="batteries_item-page" class="page"></section>
+        <section id="batteries-page" class="page"></section>
         <section id="beercan-page" class="page"></section>
         <section id="juicebox-page" class="page"></section>
         <section id="diapers-page" class="page"></section>
-        <section id="bottle-page" class="page"></section>
 
-        <!--Ana is doing the category pages-->
-        <section id="glass-page" class="page"></section>
-        <section id="paper-page" class="page"></section>
-        <section id="general-page" class="page"></section>
-        <section id="batteries-page" class="page"></section>
-        <section id="ewaste-page" class="page"></section>
-        <section id="bulky-page" class="page"></section>
-
-        <!--Map-->
         <section id="map" class="page">
             <div id="mapbox"></div>
             <div class="map-title-container">
@@ -110,26 +103,16 @@
             <div class="pant-options">
                 <div class="checkbox-container">
                     <input type="checkbox" id="pant-stations">
-
-                    <label for="flaskeautomat">Flaskeautomat</label>
+                    <label for="pant-stations">Pant stations</label>
                 </div>
                 <div class="checkbox-container">
                     <input type="checkbox" id="flaskeautomat">
-                    <label for="pant-stations">Pant stations</label>
+                    <label for="flaskeautomat">Flaskeautomat</label>
                 </div>
-                <i class="far fa-question-circle help"></i>
-            </div>
-            <div class="help-container">
-                <div class="help-header">
-                    <h4>Flaskeautomat vs. Pant station</h4>
-                    <a class="close">&times;</a>
-                </div>
-                <p>Flaskeautomats are the machines in most of the grocery stores, where you can dispose of your cans and
-                    , while pant stations are
-                    places, where you can dispose of bigger amounts of cans and bottles.</p>
+
             </div>
             <div class="map-categories">
-                <div><img id="map-glass" src="media/glass.png"></div>
+                <div><img id="map-glass" onclick="showPantOptions()" src="media/glass.png"></div>
                 <div><img id="map-general" src="media/general.png"></div>
                 <div><img id="map-paper" src="media/paper.png"></div>
                 <div><img id="map-batteries" src="media/batteries.png"></div>
@@ -138,7 +121,6 @@
             </div>
 
         </section>
-        <!--Request-->
         <section id="request" class="page"></section>
     </div>
 
