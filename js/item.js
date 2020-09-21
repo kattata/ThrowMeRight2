@@ -1,6 +1,6 @@
 /* Ana did this */
 "use strict";
-let _items = [];
+
 
 async function getItems() {
     let response = await fetch("http://throwmeright.anaiacovache.dk/wp-json/wp/v2/posts");
@@ -11,7 +11,7 @@ async function getItems() {
 }
 
 getItems();
-
+let _items = [];
 
 function appendPopularItem() {
     let htmlTemplate = "";

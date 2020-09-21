@@ -15,10 +15,6 @@ let map = new mapboxgl.Map({
     zoom: 8.5
 });
 
-function showPantOptions() {
-    document.querySelector(".pant-options").classList.toggle("visible");
-}
-
 map.on('load', function () {
     map.addSource('bulky-waste-dataset', {
         type: 'vector',
@@ -148,7 +144,7 @@ batteriesButton.onclick = function () {
 
 map.on('click', function (e) {
     var features = map.queryRenderedFeatures(e.point, {
-        layers: ['recycling-stations-dataset', 'bulky-waste-dataset', 'ewaste-dataset', 'batteries-dataset'] // replace this with the name of the layer
+        layers: ['recycling-stations-dataset', 'bulky-waste-dataset', 'ewaste-dataset', 'batteries-dataset']
     });
 
     if (!features.length) {
@@ -168,3 +164,7 @@ map.on('click', function (e) {
         )
         .addTo(map);
 });
+
+function showPantOptions() {
+    document.querySelector(".pant-options").classList.toggle("visible");
+}

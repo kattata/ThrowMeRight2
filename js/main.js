@@ -223,7 +223,7 @@ function hideMenu() {
         nav.style.visibility = "hidden";
     }
 }
-hideMenu();
+// hideMenu();
 
 function showMenu() {
     nav.style.visibility = "visible";

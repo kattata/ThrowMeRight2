@@ -41,9 +41,6 @@ a {
     opacity: 1;
 }
 
-.half-opacity {
-    opacity: 0.5;
-}
 
 .map-categories div *{
     margin: 0 20px;
