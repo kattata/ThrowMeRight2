@@ -118,7 +118,7 @@ $("#inputid").click(function () {
     $(".homepage_top").css(
         "z-index", "2"
     );
-    $(".search_results_container").slideDown(600, function () {});
+    $(".search_results_container").slideDown(600, function () { });
     $(".nav").addClass("nav-white");
 });
 
@@ -128,7 +128,7 @@ $(".home-btn").click(function () {
     $(".homepage_top").animate({
         height: '-=1000px'
     }, 600);
-    $(".search_results_container").slideUp(600, function () {});
+    $(".search_results_container").slideUp(600, function () { });
     $(".nav").removeClass("nav-white");
     $(".homepage_top").css.delay()(
         "z-index", "-1"
@@ -139,7 +139,7 @@ $(".map-btn").click(function () {
     $(".nav").removeClass("nav-white");
 });
 
-let _items = [];
+// let _items = [];
 _itemRef.onSnapshot(function (snapshotData) {
 
     snapshotData.forEach(function (doc) {
@@ -190,21 +190,10 @@ function appendOnboardingScreen() {
                 <br>Struggle no more.
             </p>
         </section>
-        <div id="continue-container"><button id="continue" onclick='showMenu()'>CONTINUE</button></div>
+        <div id="continue-container"><button id="continue" onclick="navigateTo('homepage')">CONTINUE</button></div>
     `;
     document.querySelector("#onboarding").innerHTML += htmlTemplate;
 
 }
 appendOnboardingScreen();
 
-function hideMenu() {
-    if (location.hash = "#onboarding") {
-        nav.style.visibility = "hidden";
-    }
-}
-// hideMenu();
-
-function showMenu() {
-    nav.style.visibility = "visible";
-    navigateTo("homepage");
-}

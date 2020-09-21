@@ -41,7 +41,6 @@ a {
     opacity: 1;
 }
 
-
 .map-categories div *{
     margin: 0 20px;
 }
@@ -78,6 +77,12 @@ a {
     border-radius: 10px;
     text-align: center;
     width: 90%;
+    justify-content: space-around;
+}
+
+.help {
+    display: flex;
+    align-self: center;
 }
 
 .visible {
@@ -90,8 +95,42 @@ a {
 }
 
 .checkbox-container {
-    padding: 10px 15px;
+    padding: 10px 0;
 }
+
+.help-container {
+    position: absolute;
+    z-index: 200;
+    top: 195px;
+    left: 50%;
+    display: none;
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+
+
+.help-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.close {
+    height: 10px;
+    position: absolute;
+    right: -6px;
+    top: -7px;
+}
+
+.visible2 {
+    display: block;
+}
+
 
 .checkbox-container label {
     color: white;

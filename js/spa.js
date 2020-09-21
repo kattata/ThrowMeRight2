@@ -22,6 +22,22 @@ function pageChange() {
           page = location.hash.slice(1);
      }
      showPage(page);
+     if (page === 'onboarding') {
+          hideMenu();
+     } else {
+          showMenu();
+     }
 }
 
 pageChange();
+
+function hideMenu() {
+     let nav = document.querySelector(".nav");
+     nav.style.visibility = "hidden";
+}
+
+function showMenu() {
+     let nav = document.querySelector(".nav");
+     nav.style.visibility = "visible";
+}
+

@@ -167,6 +167,19 @@ map.on('click', function (e) {
         .addTo(map);
 });
 
-function showPantOptions() {
+glassButton.addEventListener('click', function () {
     document.querySelector(".pant-options").classList.toggle("visible");
 }
+)
+
+let help = document.querySelector('.help');
+
+help.addEventListener('click', function () {
+    document.querySelector('.help-container').classList.toggle('visible2');
+});
+
+let close = document.querySelector('.close');
+
+close.addEventListener('click', function () {
+    document.querySelector('.help-container').classList.remove('visible2');
+});
