@@ -13,12 +13,9 @@ function appendCategory() {
                 </header>
                 <div class="description-container">
                     <p>${category.content.rendered}</p>
-                </div>
-                <div class="category-items-container">
-                    
                 </div>   
             </article>
-        `;
+            `;
         }
         document.querySelector(`#${category.acf.category}-page`).innerHTML += htmlTemplate;
         htmlTemplate = "";
