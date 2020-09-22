@@ -51,7 +51,7 @@ _itemRef.onSnapshot(function (snapshotData) {
     });
 });
 
-//Open more section in nav - Wojo
+//Open more section in nav - Wojciech
 let moreBtn = document.querySelector(".moreBtn");
 let navMore = document.querySelector(".nav-more");
 let navBtn = document.querySelectorAll(".fas");
@@ -75,17 +75,18 @@ function closeMore() {
     navMore.style.bottom = "-1000px";
 }
 
-/***data from request***/
 
-
+//Sending request - Wojciech
 function sendRequest() {
 
     let mailInput = document.querySelector("#emailInput").value;
     let descriptionInput = document.querySelector("#description").value;
     let fileInput = document.querySelector("#fileInput").src;
     let invalidMsg = document.querySelector(".invalid");
+    let info = document.querySelector(".info");
 
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 
     if (mailInput == "" || descriptionInput == "") {
         console.log("Error empty");
@@ -102,7 +103,7 @@ function sendRequest() {
 
         _requestRef.add(newRequest);
         console.log("sent");
-        navigateTo("#homepage");
+        info.style.display = "block";
     }
 }
 
@@ -147,8 +148,7 @@ _itemRef.onSnapshot(function (snapshotData) {
     });
 });
 
-// search functionality
-
+//search functionality - Wojciech
 function search(value) {
     const key = event.key;
     if (key === "Backspace" || key === "Delete" || key === "Enter") {
