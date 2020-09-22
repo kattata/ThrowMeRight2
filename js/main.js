@@ -161,7 +161,28 @@ function search(value) {
     let searchValue = value.toLowerCase();
     let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
     appendItem(filteredItems);
+
+    let searchInput = document.getElementById("inputid");
+
+    if(filteredItems.length === 0){
+        noResults();
+        
+    }
+
 };
+
+function noResults(){
+    let template = `
+        <p class="no-results-info">No results!</p>
+        <div class="search_no_results">
+            <p class="request-info">Would you like to help us add this product to our database?</p>
+            <a href="#request"><button class="go-request">Send request</button></a>   
+        </div>
+    `;
+
+    document.querySelector(".search_results_container").innerHTML = template;
+
+}
 
 function appendItem(items) {
     let htmlTemplate = "";
@@ -212,18 +233,3 @@ function showMenu() {
     navigateTo("homepage");
 }
 
-// function search(value) {
-//     // TODO: search functionality
-//     let searchValue = value.toLowerCase();
-//     console.log(searchValue);
-
-//     let result = [];
-//     for (const item of _items) {
-//         let name = item.name.toLowerCase();
-//         if (name.includes(searchValue)) {
-//             result.push(item);
-//         }
-//     }
-//     appendItem(result);
-// }
-appendOnboardingScreen();
