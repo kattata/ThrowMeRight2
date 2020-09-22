@@ -2,7 +2,7 @@
 
 
 // append popular items - Ana
-function appendPopularItem() {
+function appendItems() {
     let htmlTemplate = "";
     for (const item of _posts) {
         if (item.categories.includes(3)) {
@@ -10,6 +10,7 @@ function appendPopularItem() {
             htmlTemplate += /*html*/ `
             <article id="item-container">
                 <header class="white-head">
+                <i class="fas fa-angle-left back-arrow" onclick="navigateTo('homepage')"></i>
                 <h2>${item.title.rendered}</h2>
             </header>
             <div class="item-image-container">
