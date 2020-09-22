@@ -17,6 +17,7 @@ function appendPopularItem() {
              </div>
                 <h3>Where to throw it</h3>
                 <img src= "${item.acf.category_image}" id="item-category-image">
+                <div id="map-button"><button class="yellow-button" onclick="navigateTo('map')">Go to Map</button></div>
                 <div class="description-container">
                     <p>${item.content.rendered}</p>
                 </div>
