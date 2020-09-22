@@ -85,9 +85,9 @@ function sendRequest() {
     let invalidMsg = document.querySelector(".invalid");
     let info = document.querySelector(".info");
 
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; //template to check if the input is an email adress
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; //template to check if the email adress is correct
 
-
+    //Checking if inputs are empty and if email is correct.
     if (mailInput == "" || descriptionInput == "") {
         console.log("Error empty");
         invalidMsg.textContent = "Please fill up the form."
@@ -100,7 +100,7 @@ function sendRequest() {
             description: descriptionInput,
             img: fileInput
         }
-
+        //sending data to database
         _requestRef.add(newRequest);
         console.log("sent");
         info.style.display = "block";
@@ -150,6 +150,7 @@ _itemRef.onSnapshot(function (snapshotData) {
 
 //search functionality - Wojciech
 function search(value) {
+    //Disable 3 keys due to keyup event
     const key = event.key;
     if (key === "Backspace" || key === "Delete" || key === "Enter") {
         return false;
@@ -159,11 +160,10 @@ function search(value) {
     let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
     appendItem(filteredItems);
 
+    //if there is zero searched items show info "No results"
     if (filteredItems.length === 0) {
         noResults();
-
     }
-
 };
 
 function noResults() {
