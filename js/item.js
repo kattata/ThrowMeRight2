@@ -20,7 +20,7 @@ function appendPopularItem() {
             htmlTemplate += /*html*/ `
             <article id="item-container">
                 <header class="green-head">
-                <h1>${item.title.rendered}</h1>
+                <h2>${item.title.rendered}</h2>
             </header>
             <div class="item-image-container">
                 <img src= "${item.acf.image}" id="item-image">

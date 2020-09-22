@@ -1,10 +1,3 @@
-//slick
-$(window).on('load', function () {
-    $(".map-categories").slick({
-        slidesToShow: 3,
-        slidesToScroll: 2
-    });
-});
 
 //mapbox
 mapboxgl.accessToken = 'pk.eyJ1Ijoia2F0dGF0YSIsImEiOiJjazdkMW9samkwamVxM2ZwYTdycWVqeTdnIn0.UiaVPV8_C6knWwC1_K8zkA';
@@ -14,6 +7,31 @@ let map = new mapboxgl.Map({
     center: [10.195, 56.154,],
     zoom: 8.5
 });
+
+//slick
+$(window).on('load', function () {
+    $(".map-categories").slick({
+        slidesToShow: 3,
+        slidesToScroll: 2
+    });
+});
+//append categories
+function appendCategoriesImages() {
+    let htmlTemplate = "";
+
+    htmlTemplate += `
+    <div><img id="map-glass" src="media/glass.png"></div>
+    <div><img id="map-general" src="media/general.png"></div>
+    <div><img id="map-paper" src="media/paper.png"></div>
+    <div><img id="map-batteries" src="media/batteries.png"></div>
+    <div><img id="map-bulky" src="media/bulky.png"></div>
+    <div><img id="map-ewaste" src="media/ewaste.png"></div>
+    `
+    document.querySelector('.map-categories').innerHTML += htmlTemplate;
+}
+
+appendCategoriesImages();
+
 
 map.on('load', function () {
     map.addSource('bulky-waste-dataset', {
@@ -183,3 +201,4 @@ let close = document.querySelector('.close');
 close.addEventListener('click', function () {
     document.querySelector('.help-container').classList.remove('visible2');
 });
+
