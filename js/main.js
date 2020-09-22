@@ -86,7 +86,6 @@ function sendRequest() {
     let descriptionInput = document.querySelector("#description").value;
     let fileInput = document.querySelector("#fileInput").src;
     let invalidMsg = document.querySelector(".invalid");
-    let info = document.querySelector(".info");
 
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -105,7 +104,7 @@ function sendRequest() {
 
         _requestRef.add(newRequest);
         console.log("sent");
-        info.style.display = "block";
+        navigateTo("#homepage");
     }
 }
 
@@ -189,9 +188,9 @@ function appendItem(items) {
     for (const item of items) {
         htmlTemplate += /*html*/ `
           
-            <div class="search_results">
-                <a href="#${item.name}-page" class="item-result" id="${item.name}">${item.name}</a>
-                <i class="fas fa-angle-right"></i>
+        <div class="search_results">
+            <a href="#${item.category}-page" class="item-result" id="${item.name}">${item.name}</a>
+            <i class="fas fa-angle-right"></i>
             </div>
         `;
 
@@ -217,19 +216,4 @@ function appendOnboardingScreen() {
     document.querySelector("#onboarding").innerHTML += htmlTemplate;
 
 }
-
 appendOnboardingScreen();
-
-function hideMenu() {
-    if (location.hash = "#onboarding") {
-        nav.style.visibility = "hidden";
-    }
-}
-hideMenu();
-
-function showMenu() {
-    window.localStorage.setItem('newUser', 'clicked');
-    nav.style.visibility = "visible";
-    navigateTo("homepage");
-}
-
