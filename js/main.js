@@ -172,8 +172,6 @@ function appendItem(items) {
             <i class="fas fa-angle-right"></i>
             </div>
         `;
-
-
     }
     document.querySelector(".search_results_container").innerHTML = htmlTemplate;
     console.log(items);
