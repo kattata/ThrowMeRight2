@@ -15,6 +15,7 @@ $(window).on('load', function () {
         slidesToScroll: 2
     });
 });
+
 //append categories
 function appendCategoriesImages() {
     let htmlTemplate = "";
