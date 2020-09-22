@@ -117,7 +117,7 @@ $("#inputid").click(function () {
     $(".homepage_top").css(
         "z-index", "2"
     );
-    $(".search_results_container").slideDown(600, function () {});
+    $(".search_results_container").slideDown(600, function () { });
     $(".nav").addClass("nav-white");
 });
 
@@ -127,7 +127,7 @@ $(".home-btn").click(function () {
     $(".homepage_top").animate({
         height: '-=1000px'
     }, 600);
-    $(".search_results_container").slideUp(600, function () {});
+    $(".search_results_container").slideUp(600, function () { });
     $(".nav").removeClass("nav-white");
     $(".homepage_top").css.delay()(
         "z-index", "-1"
@@ -138,7 +138,7 @@ $(".map-btn").click(function () {
     $(".nav").removeClass("nav-white");
 });
 
-// let _items = [];
+let _items = [];
 _itemRef.onSnapshot(function (snapshotData) {
 
     snapshotData.forEach(function (doc) {

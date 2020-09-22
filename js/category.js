@@ -10,7 +10,7 @@ function appendCategory() {
             console.log(category.title.rendered, category.acf.category);
             htmlTemplate += /*html*/ `
             <article id="category-container">
-                <header class="green-head">
+                <header class="white-head">
                     <h2>${category.title.rendered}</h2>
                 </header>
                 <div class="description-container">
