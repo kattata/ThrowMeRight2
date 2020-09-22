@@ -1,15 +1,5 @@
 "use strict";
 
-async function getItems() {
-    let response = await fetch("http://throwmeright.anaiacovache.dk/wp-json/wp/v2/posts");
-    let data = await response.json();
-    console.log(data);
-    _items = data;
-    appendPopularItem()
-}
-
-getItems();
-let _items = [];
 
 // append popular items - Ana
 function appendPopularItem() {
@@ -25,7 +15,7 @@ function appendPopularItem() {
             <div class="item-image-container">
                 <img src= "${item.acf.image}" id="item-image">
              </div>
-                <h2>Where to throw it</h2>
+                <h3>Where to throw it</h3>
                 <img src= "${item.acf.category_image}" id="item-category-image">
                 <div class="description-container">
                     <p>${item.content.rendered}</p>
