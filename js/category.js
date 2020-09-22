@@ -1,6 +1,8 @@
 "use strict";
 
-// Appending categories - Ana
+//Categories - Ana
+
+// Appending categories
 function appendCategory() {
     let htmlTemplate = "";
     for (const category of _posts) {

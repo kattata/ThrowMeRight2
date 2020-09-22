@@ -24,7 +24,7 @@ async function getPosts() {
     let data = await response.json();
     console.log(data);
     _posts = data;
-    appendPopularItem();
+    appendItems();
     appendCategory();
 }
 getPosts();

@@ -550,11 +550,17 @@ input[type="submit"] {
     border-radius: 0 0 15px 15px;
 }
 
+.back-arrow {
+    color: var(--dark-grey);
+    margin-left: 15px;
+}
+
 .white-head>h2 {
     text-align: left;
     font-size: 24px;
     font-weight: 800;
     margin-left: 15px;
+    line-height: 24px;
 }
 
 #item-category-image {
