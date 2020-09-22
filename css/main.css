@@ -580,8 +580,8 @@ input[type="submit"] {
 }
 
 #item-image {
-    width: 40%;
-    height: auto;
+    width: 60%;
+    border-radius: 10px;
 }
 
 .item-image-container {
