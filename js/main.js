@@ -185,9 +185,10 @@ function appendItem(items) {
         htmlTemplate += /*html*/ `
           
         <div class="search_results">
-            <a href="#${item.category}-page" class="item-result" id="${item.name}">${item.name}</a>
+            <a href="#${item.category}-page" class="item-result" id="${item.name}"></a>
+            <p>${item.name}</p>
             <i class="fas fa-angle-right"></i>
-            </div>
+        </div>
         `;
     }
     document.querySelector(".search_results_container").innerHTML = htmlTemplate;
