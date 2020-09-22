@@ -111,8 +111,6 @@ a {
     border-radius: 10px;
 }
 
-
-
 .help-header {
     display: flex;
     flex-direction: row;
@@ -130,7 +128,6 @@ a {
 .visible2 {
     display: block;
 }
-
 
 .checkbox-container label {
     color: white;
