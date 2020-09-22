@@ -75,6 +75,8 @@ function closeMore() {
     navMore.style.bottom = "-1000px";
 }
 
+document.querySelector("#webapp").addEventListener("click", closeMore); //close menu when clicking outside of it
+
 
 //Sending request - Wojciech
 function sendRequest() {
@@ -117,7 +119,7 @@ $("#inputid").click(function () {
     $(".homepage_top").css(
         "z-index", "2"
     );
-    $(".search_results_container").slideDown(600, function () { });
+    $(".search_results_container").slideDown(600, function () {});
     $(".nav").addClass("nav-white");
 });
 
@@ -127,7 +129,7 @@ $(".home-btn").click(function () {
     $(".homepage_top").animate({
         height: '-=1000px'
     }, 600);
-    $(".search_results_container").slideUp(600, function () { });
+    $(".search_results_container").slideUp(600, function () {});
     $(".nav").removeClass("nav-white");
     $(".homepage_top").css.delay()(
         "z-index", "-1"
