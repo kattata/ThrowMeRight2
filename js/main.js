@@ -161,16 +161,14 @@ function search(value) {
     let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
     appendItem(filteredItems);
 
-    let searchInput = document.getElementById("inputid");
-
-    if(filteredItems.length === 0){
+    if (filteredItems.length === 0) {
         noResults();
-        
+
     }
 
 };
 
-function noResults(){
+function noResults() {
     let template = `
         <p class="no-results-info">No results!</p>
         <div class="search_no_results">
