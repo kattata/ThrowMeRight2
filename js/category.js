@@ -18,18 +18,16 @@ function appendCategory() {
                 </div>   
                 <div class="search_results">
                     <a class="item-result"></a>
-                    <p>Item 1</p>
-                    <i class="fas fa-angle-right"></i>
+                    <p>Item</p>
+                    
                 </div>
                 <div class="search_results">
                     <a class="item-result"></a>
-                    <p>Item 2</p>
-                    <i class="fas fa-angle-right"></i>
+                    <p>Item</p>
                 </div>
                 <div class="search_results">
                     <a class="item-result"></a>
-                    <p>Item 3</p>
-                    <i class="fas fa-angle-right"></i>
+                    <p>Item</p>
                 </div>
             </article>
             `;
