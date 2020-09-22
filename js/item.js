@@ -33,10 +33,8 @@ function appendPopularItem() {
                 
             </article>
      `;
-
         }
         document.querySelector(`#${item.acf.category}-page`).innerHTML += htmlTemplate;
         htmlTemplate = "";
     }
-
 }
