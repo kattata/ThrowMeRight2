@@ -1,5 +1,5 @@
 "use strict";
-
+//SPA functions - Wojtek
 function hideAllPages() {
      let pages = document.querySelectorAll(".page");
      for (const page of pages) {

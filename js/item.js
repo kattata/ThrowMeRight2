@@ -9,7 +9,7 @@ function appendPopularItem() {
             console.log(item.title.rendered, item.acf.category, item.acf.image, item.acf.category_image);
             htmlTemplate += /*html*/ `
             <article id="item-container">
-                <header class="green-head">
+                <header class="white-head">
                 <h2>${item.title.rendered}</h2>
             </header>
             <div class="item-image-container">
