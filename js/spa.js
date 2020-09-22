@@ -27,6 +27,7 @@ function pageChange() {
      } else {
           showMenu();
      }
+     $(".nav").removeClass("nav-white");
 }
 
 pageChange();
@@ -40,4 +41,3 @@ function showMenu() {
      let nav = document.querySelector(".nav");
      nav.style.visibility = "visible";
 }
-

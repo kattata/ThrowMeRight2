@@ -75,6 +75,8 @@ function closeMore() {
     navMore.style.bottom = "-1000px";
 }
 
+document.querySelector("#webapp").addEventListener("click", closeMore); //close menu when clicking outside of it
+
 
 //Sending request - Wojciech
 function sendRequest() {
@@ -138,7 +140,7 @@ $(".map-btn").click(function () {
     $(".nav").removeClass("nav-white");
 });
 
-// let _items = [];
+let _items = [];
 _itemRef.onSnapshot(function (snapshotData) {
 
     snapshotData.forEach(function (doc) {
@@ -199,7 +201,7 @@ function appendItem(items) {
 
 function appendOnboardingScreen() {
     let htmlTemplate = /*html*/ `
-        <div id="logo-container"><img src="./media/logo.png" id="logo-image"></div>
+        <div id="logo-container"><img src="./media/logo.png" id="logo-image" alt="logo"></div>
         <section id="app-description">
             <h1>Welcome!</h1>
             <p>It takes just a search in our app to find out how to sort your trash.
