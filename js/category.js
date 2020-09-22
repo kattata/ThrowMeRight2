@@ -9,7 +9,7 @@ function appendCategory() {
             htmlTemplate += /*html*/ `
             <article id="category-container">
                 <header class="green-head">
-                    <h1>${category.title.rendered}</h1>
+                    <h2>${category.title.rendered}</h2>
                 </header>
                 <div class="description-container">
                     <p>${category.content.rendered}</p>

@@ -47,7 +47,7 @@
         <section id="homepage" class="page">
             <div class="homepage_top"></div>
             <div class="searchbar_container">
-                <input id="inputid" type="text" placeholder=" Search for trash..." onkeyup="search(this.value)">
+                <input id="inputid" type="search" placeholder=" Search for trash..." onkeyup="search(this.value)">
             </div>
             <div class="search_results_container">
                 <div class="search_results"></div>
@@ -129,7 +129,25 @@
 
         </section>
         <!--Request-->
-        <section id="request" class="page"></section>
+        <section id="request" class="page request">
+            <header class="green-head">
+                <h2>Request</h2>
+            </header>
+
+            <div class="form">
+                <form action="#">
+                    <label for="emailInput">E-mail</label>
+                    <input type="email" id="emailInput" required>
+
+                    <label for="description">Description</label>
+                    <textarea id="description" required></textarea>
+
+                    <input type="file" id="fileInput" class="fileInput" accept="image/*">
+                    <span class="invalid"></span>
+                    <input type="submit" value="Send" onclick="sendRequest()">
+                </form>
+            </div>
+        </section>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>

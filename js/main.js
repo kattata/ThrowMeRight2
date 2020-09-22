@@ -160,7 +160,26 @@ function search(value) {
     let searchValue = value.toLowerCase();
     let filteredItems = items.filter(item => item.name.toLowerCase().includes(searchValue));
     appendItem(filteredItems);
+
+    if (filteredItems.length === 0) {
+        noResults();
+
+    }
+
 };
+
+function noResults() {
+    let template = `
+        <p class="no-results-info">No results!</p>
+        <div class="search_no_results">
+            <p class="request-info">Would you like to help us add this product to our database?</p>
+            <a href="#request"><button class="go-request">Send request</button></a>   
+        </div>
+    `;
+
+    document.querySelector(".search_results_container").innerHTML = template;
+
+}
 
 function appendItem(items) {
     let htmlTemplate = "";
@@ -172,8 +191,6 @@ function appendItem(items) {
             <i class="fas fa-angle-right"></i>
             </div>
         `;
-
-
     }
     document.querySelector(".search_results_container").innerHTML = htmlTemplate;
     console.log(items);
