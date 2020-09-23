@@ -27,7 +27,7 @@ function pageChange() {
      } else {
           showMenu();
      }
-     $(".nav").removeClass("nav-white");
+     $(".nav").removeClass("nav-yellow");
 }
 
 pageChange();
