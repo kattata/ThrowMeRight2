@@ -19,7 +19,7 @@ function appendItems() {
                 <h3>Where to throw it</h3>
                 <img src= "${item.acf.category_image}" id="item-category-image" alt="waste category">
                 <div id="map-button"><button class="yellow-button" onclick="navigateTo('map')">Go to Map</button></div>
-                <div class="description-container">
+                <div class="description-container item-pack">
                     <p>${item.content.rendered}</p>
                 </div>
                 
