@@ -114,7 +114,7 @@ i {
     font-size: 25px;
 }
 
-.nav-white {
+.nav-yellow {
     background-color: var(--yellow);
     -webkit-transition: background-color 700ms;
     transition: background-color 700ms;
